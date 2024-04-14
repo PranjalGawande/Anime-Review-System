@@ -32,6 +32,8 @@ public class SecurityConfig {
                                 .permitAll()
                                 .requestMatchers("/register/**")
                                 .permitAll()
+                                .requestMatchers("/api/anime/**")
+                                .permitAll()
                                 .anyRequest()
                                 .authenticated()
                 ).userDetailsService(loginDetailService)
