@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
         <Banner />
-        <div style={{ height: '1000vh' }}></div>
+        <div style={{ height: '100vh' }}></div>
     </div>
   )
 }
