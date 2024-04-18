@@ -20,12 +20,7 @@ const Banner = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const token = 'eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJoYXJpQGdtYWlsLmNvbSIsImlhdCI6MTcxMzAwOTg3OCwiZXhwIjoxNzEzMDI3ODc4fQ.GfyFOhkKolZ4cOkmQb27CbQGtTvxVHIJQCUy9W82Gomp87kZTRslUFra7vMqht4w'; // Replace 'your_auth_token_here' with your actual token
-                const response = await axios.get('http://localhost:9292/api/anime/background-images', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
+                const response = await axios.get('http://localhost:9292/api/anime/background-images');
                 const data = response.data;
                 const randomIndex = Math.floor(Math.random() * data.length);
                 setBackground(data[randomIndex]);
@@ -41,26 +36,27 @@ const Banner = () => {
 
     return (
         <div className='banner'>
-            {!loading && <div className="background-img">
-                <LazyloadImg src={background} />
-            </div>}
+            {!loading &&
+                <div className="background-img">
+                    <LazyloadImg src={background} />
+                </div>}
 
             <div className="opacity-layer"></div>
 
             <ContentWrapper>
-                    <div className='banner-content'>
-                        <span className='title'>ANIMIX</span>
-                        <span className='subTitle'>Anime series and movies to discover. Explore Now.</span>
-                        <div className="searchInput">
-                            <input
-                                type="text"
-                                placeholder='Search for anime series and movies...'
-                                onChange={(event) => setQuery(event.target.value)}
-                                onKeyUp={searchQueryHandler}
-                            />
-                            <button>Search</button>
-                        </div>
+                <div className='banner-content'>
+                    <span className='title'>ANIMIX</span>
+                    <span className='subTitle'>Anime series and movies to discover. Explore Now.</span>
+                    <div className="searchInput">
+                        <input
+                            type="text"
+                            placeholder='Search for anime series and movies...'
+                            onChange={(event) => setQuery(event.target.value)}
+                            onKeyUp={searchQueryHandler}
+                        />
+                        <button>Search</button>
                     </div>
+                </div>
             </ContentWrapper>
 
 
