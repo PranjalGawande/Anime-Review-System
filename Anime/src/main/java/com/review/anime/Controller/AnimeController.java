@@ -160,4 +160,15 @@ public class AnimeController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving recommended anime: " + e.getMessage());
         }
     }
+
+    @GetMapping("/relations/{id}")
+    public ResponseEntity<String> getAnimeRelations(@PathVariable("id") String id) {
+        try {
+            String animeRelations = animeService.getAnimeRelations(id);
+            return ResponseEntity.ok(animeRelations);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error retrieving anime relations: " + e.getMessage());
+        }
+    }
 }

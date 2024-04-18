@@ -201,4 +201,15 @@ public class AnimeService {
             throw new RuntimeException("Error retrieving recommended anime: " + e.getMessage());
         }
     }
+
+    public String getAnimeRelations(String id) {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            return restTemplate.getForObject(JIKAN_API_URL + "anime/" + id + "/relations", String.class);
+        } catch (HttpClientErrorException.Forbidden e) {
+            throw new RuntimeException("Access to anime relations API is forbidden. Check authorization.");
+        } catch (Exception e) {
+            throw new RuntimeException("Error retrieving anime relations: " + e.getMessage());
+        }
+    }
 }
