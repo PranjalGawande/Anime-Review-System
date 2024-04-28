@@ -17,12 +17,14 @@ import CircleRating from "./CircleRating";
 // import "./style.scss";
 
 
-const Carousel = ({ data, isUpcoming }) => {
+const Carousel = ({ data, isUpcoming, title }) => {
     const [loading, setLoading] = useState(false);
     const carouselContainer = useRef(null);
     const navigate = useNavigate();
     console.log(data);
     // console.log(carouselContainer.current);
+
+    // const carouselData = title ? data.map(item => item.entry) : data;
 
     const navigation = (direction) => {
         const container = carouselContainer.current;
@@ -39,7 +41,7 @@ const Carousel = ({ data, isUpcoming }) => {
     const skeletonItem = () => {
         return (
             <div className="skeletonItem">
-                <div className="posterBlock skeleton"></div>
+                <div className="imageBlock skeleton"></div>
                 <div className="textBlock">
                     < div className="title skeleton" ></div >
                     <div className="date skeleton"></div>
@@ -51,6 +53,10 @@ const Carousel = ({ data, isUpcoming }) => {
     return (
         <div className="carousel">
             <ContentWrapper>
+                {data && data.length > 0 && title && <div className="carouselTitle text-dark text-start">
+                    {title}
+                </div>
+                }
                 <button className="carousel-control-prev arrow carouselLeftNav" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"
                     onClick={() => {
                         navigation("left");
@@ -71,20 +77,22 @@ const Carousel = ({ data, isUpcoming }) => {
 
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
-                        {data?.slice(0, 15).map((item) => {
+                        {data?.slice(0, 15)?.map((item) => {
+                            //  const entry = title ? item?.entry : item;
+                            //  const image = entry?.images ? entry?.images.jpg.large_image_url : NoImagePlaceholder;     
                             const image = item.images ? item.images.jpg.large_image_url : NoImagePlaceholder;
                             return (
                                 <div key={item.id}
                                     className="carouselItem"
-                                    onClick={() => navigate(`/anime/${item.mal_id}`)}
+                                    onClick={() => navigate(`/anime/${item?.mal_id}`)}
                                 >
-                                    <div className="posterBlock">
+                                    <div className="imageBlock">
                                         <LazyloadImg src={image} />
-                                        {!isUpcoming && <CircleRating rating={item.score} />}
+                                        {!isUpcoming && !title && <CircleRating rating={item?.score} />}
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
-                                            {item.title}
+                                            {item?.title_english ? item?.title_english : item?.title}
                                         </span>
                                     </div>
                                 </div>
