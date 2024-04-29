@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import AnimeDetails from './pages/AnimeDetails';
 import SearchResult from './pages/SearchResult';
+import Explore from './pages/Explore';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/anime/:id" element={<AnimeDetails />} />
           <Route path='/search/:query' element={<SearchResult />} />
+          <Route path='/explore' element={<Explore />} />
           {/* {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/product" element={<Product />} /> */}
         </Routes>

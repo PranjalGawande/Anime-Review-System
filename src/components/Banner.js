@@ -17,6 +17,12 @@ const Banner = () => {
         }
     }
 
+    const searchButtonClickHandler = () => {
+        if (query.length > 0) {
+            navigate(`/search/${query}`)
+        }
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -54,7 +60,7 @@ const Banner = () => {
                             onChange={(event) => setQuery(event.target.value)}
                             onKeyUp={searchQueryHandler}
                         />
-                        <button>Search</button>
+                        <button onClick={searchButtonClickHandler}>Search</button>
                     </div>
                 </div>
             </ContentWrapper>

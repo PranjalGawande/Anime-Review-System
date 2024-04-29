@@ -53,6 +53,7 @@ const Header = () => {
           <a href="/">ANIMIX</a>
         </div>
         <ul className="menuItems">
+          <li className="menuItem" onClick={() => navigate("/explore")}>EXPLORE</li>
           <li className="menuItem">LOGIN</li>
           <li className="menuItem">SIGNUP</li>
         </ul>
