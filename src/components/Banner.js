@@ -32,6 +32,7 @@ const Banner = () => {
                 setBackground(data[randomIndex]);
                 setLoading(false);
             } catch (error) {
+                fetchData();
                 console.error('Error fetching data:', error);
             }
         };

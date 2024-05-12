@@ -28,7 +28,7 @@ const sortbyData = [
     { value: "original_title.asc", label: "Title (A-Z)" },
 ];
 
-const Explore = () => {
+const ViewMore = () => {
     const [data, setData] = useState({ pagination: {}, data: [] });
     // const [data, setData] = useState(null);
     const [pageNum, setPageNum] = useState(1);
@@ -41,6 +41,7 @@ const Explore = () => {
     const [noRefresh, setNoRefresh] = useState(false);
     const location = useLocation();
     const genresData = location.state?.genresData;
+    const type = useParams().type; 
 
     // const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
 
@@ -58,14 +59,14 @@ const Explore = () => {
     // useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            console.log("genre", genre);
-            const genreQueryParam = genre ? `&genres=${genre.map(g => g.mal_id).join(',')}` : '';
-            setTimeout(() => {
-                console.log("genreQueryParam", genreQueryParam);
-            }, 5000);
+            // console.log("genre", genre);
+            // const genreQueryParam = genre ? `&genres=${genre.map(g => g.mal_id).join(',')}` : '';
+            // setTimeout(() => {
+            //     console.log("genreQueryParam", genreQueryParam);
+            // }, 5000);
             // console.log("genreQueryParam", genreQueryParam);
             try {
-                const response = await axios.get(`http://localhost:9292/api/anime/explore?page=${pageNum}${genreQueryParam}`);
+                const response = await axios.get(`http://localhost:9292/api/anime/${type}?page=${pageNum}`);
                 // const data = response.data;
                 // setData(data);
                 // setPageNum((prev => prev + 1));
@@ -91,13 +92,13 @@ const Explore = () => {
     // // }, []);
 
     const fetchNextPageData = async () => {
-        const genreQueryParam = genre ? `&genres=${genre.map(g => g.mal_id).join(',')}` : '';
-        setTimeout(() => {
-            console.log("genreQueryParam", genreQueryParam);
-        }, 5000);
+        // const genreQueryParam = genre ? `&genres=${genre.map(g => g.mal_id).join(',')}` : '';
+        // setTimeout(() => {
+            // console.log("genreQueryParam", genreQueryParam);
+        // }, 5000);
         // console.log("genreQueryParam", genreQueryParam);
         try {
-            const response = await axios.get(`http://localhost:9292/api/anime/explore?page=${pageNum}${genreQueryParam}`).then((response) => {
+            const response = await axios.get(`http://localhost:9292/api/anime/${type}?page=${pageNum}`).then((response) => {
                 if (data?.data) {
                     setData({
                         ...data, data: [...data?.data, ...response.data.data]
@@ -131,30 +132,30 @@ const Explore = () => {
     //     fetchData();
     // }, [genre, sortby]);
 
-    const onChange = (selectedItems, action) => {
-        if (action.name === "sortby") {
-            setSortby(selectedItems);
-            if (action.action !== "clear") {
-                filters.sort_by = selectedItems.value;
-            } else {
-                delete filters.sort_by;
-            }
-        }
+    // const onChange = (selectedItems, action) => {
+    //     if (action.name === "sortby") {
+    //         setSortby(selectedItems);
+    //         if (action.action !== "clear") {
+    //             filters.sort_by = selectedItems.value;
+    //         } else {
+    //             delete filters.sort_by;
+    //         }
+    //     }
 
-        if (action.name === "genres") {
-            setGenre(selectedItems);
-            if (action.action !== "clear") {
-                let genreId = selectedItems.map((g) => g.id);
-                genreId = JSON.stringify(genreId).slice(1, -1);
-                filters.with_genres = genreId;
-            } else {
-                delete filters.with_genres;
-            }
-        }
+    //     if (action.name === "genres") {
+    //         setGenre(selectedItems);
+    //         if (action.action !== "clear") {
+    //             let genreId = selectedItems.map((g) => g.id);
+    //             genreId = JSON.stringify(genreId).slice(1, -1);
+    //             filters.with_genres = genreId;
+    //         } else {
+    //             delete filters.with_genres;
+    //         }
+    //     }
 
-        setPageNum(1);
-        fetchData();
-    };
+    //     setPageNum(1);
+    //     fetchData();
+    // };
 
 
 
@@ -194,9 +195,12 @@ const Explore = () => {
             <ContentWrapper>
                 <div className="pageHeader">
                     <div className="pageTitle">
-                        Explore Anime
+                        {(type === "current-season" && "Popular This Season")
+                        || (type === "top-anime" && "All Time Top Anime")
+                        || (type === "upcoming-anime" && "Upcoming Next Season")
+                        }
                     </div>
-                    <div className="filters">
+                    {/* <div className="filters">
                         <Select
                             isMulti
                             name="genres"
@@ -220,7 +224,7 @@ const Explore = () => {
                             className="react-select-container sortbyDD"
                             classNamePrefix="react-select"
                         />
-                    </div>
+                    </div> */}
                 </div>
                 {loading && <Spinner initial={true} />}
                 {!loading && (
@@ -236,7 +240,7 @@ const Explore = () => {
                             >
                                 {data.data.map((item, index) => {
                                     return (
-                                        <AnimeCard key={index} data={item} fromSearch={true} />
+                                        <AnimeCard key={index} data={item} type={type} />
                                     )
                                 })}
                             </InfiniteScroll>
@@ -253,4 +257,4 @@ const Explore = () => {
     );
 };
 
-export default Explore;
+export default ViewMore;

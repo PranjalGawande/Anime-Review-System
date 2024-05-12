@@ -161,7 +161,11 @@ return (
 
                     </>
                 ) : (
-                    <img src={noResults} width={"50%"} alt='No results found' />
+                    <div className='d-flex flex-column justify-content-center align-items-center'>
+                        <h1>No Results</h1>
+                        <img src={noResults} width={"50%"} alt='No results found'/>
+                    </div>
+                    
                 )}
 
             </ContentWrapper>

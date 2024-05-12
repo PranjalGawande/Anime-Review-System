@@ -4,7 +4,7 @@ import LazyloadImg from "./LazyloadImg";
 import CircleRating from "./CircleRating";
 import NoImagePlaceholder from "./assets/No-Image-Placeholder.png";
 
-const AnimeCard = ({ data, fromSearch }) => {
+const AnimeCard = ({ data, type }) => {
     // const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
     // const posterUrl = data.poster_path
@@ -20,6 +20,12 @@ const AnimeCard = ({ data, fromSearch }) => {
         >
             <div className="imageBlock">
                 <LazyloadImg className="Img" src={ImageUrl} />
+                {(type === "current-season" || type === "top-anime") && (
+                    <React.Fragment>
+                        <CircleRating rating={data.score} />
+                        {/* <Genres data={data.genre_ids.slice(0, 2)} /> */}
+                    </React.Fragment>
+                )}
             </div>
             <div className="textBlock">
                 <span className="title">{data.title || data.name}</span>

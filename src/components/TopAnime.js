@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ContentWrapper from './ContentWrapper'
 import Carousel from './Carousel'
 import axios from 'axios'
 
 const TopAnime = () => {
     const [data, setData] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,12 +22,16 @@ const TopAnime = () => {
         fetchData();
     }, []);
 
+    const handleViewMore = () => {
+        // Navigate to the ViewMore page when button is clicked
+        navigate('/viewmore/top-anime');
+    };
 
     return (
         <div className='carouselPopularSeason'> 
             <ContentWrapper>
                 <span className='carouselTitle'>ALL TIME TOP ANIME</span>
-                <button className="cta">
+                <button className="cta" onClick={ handleViewMore }>
                     <span>View More</span>
                     <svg width="15px" height="10px" viewBox="0 0 13 10">
                         <path d="M1,5 L11,5"></path>
