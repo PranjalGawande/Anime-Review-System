@@ -5,6 +5,7 @@ import AnimeDetailsBanner from '../components/AnimeDetailsBanner';
 import Characters from '../components/Characters';
 import Recommendation from '../components/Recommendation';
 import Staffs from '../components/Staffs';
+import ReviewSection from '../components/ReviewSection';
 
 
 const AnimeDetails = () => {
@@ -233,6 +234,7 @@ const AnimeDetails = () => {
       <AnimeDetailsBanner data={details} stats={stats} loading={loading} />
       <Characters data={characters} loading={loading} />
       <Staffs data={staff} loading={loading} />
+      <ReviewSection  loading={loading} />
       <Recommendation data={recommendations} loading={loading} />
     </div>
   )

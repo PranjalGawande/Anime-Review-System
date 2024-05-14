@@ -107,20 +107,20 @@ const Header = () => {
     setShow(showLoginForm ? "top" : "blur");
   };
 
-  const fetchGenres = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:9292/api/anime/get-anime-genres"
-      );
-      setGenresData(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const fetchGenres = async () => {
+  //   try {
+  //     const response = await axios.get(
+  //       "http://localhost:9292/api/anime/get-anime-genres"
+  //     );
+  //     setGenresData(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchGenres();
-  }, []);
+  // useEffect(() => {
+  //   fetchGenres();
+  // }, []);
 
   useEffect(() => {
     setToken(sessionStorage.getItem("token"));
@@ -150,7 +150,7 @@ const Header = () => {
           <span className="menuItem" onClick={() => navigate("/")}>ANIMIX</span>
         </div>
         <ul className="menuItems">
-          <li className="menuItem" onClick={() => navigate("/explore", { state: { genresData: genresData } })}>
+          <li className="menuItem" onClick={() => navigate("/explore")}>
             EXPLORE
           </li>
           <li className="menuItem" onClick={() => getRandomAnime()}>
