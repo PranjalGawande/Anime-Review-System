@@ -7,44 +7,45 @@ import ContentWrapper from "./ContentWrapper";
 import Carousel from "./Carousel";
 // import useFetch from "../../../hooks/useFetch";
 
-const Recommendation = () => {
+const Recommendation = ({ data, loading }) => {
     // const [data, setData] = useState([]);
-    const [recommendations, setRecommendations] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [data, setdata] = useState([]);
+    // const [loading, setLoading] = useState(false);
     const { id } = useParams();
+    console.log("data", data);
 
     // const { data, loading, error } = useFetch(
-    //     `/${mediaType}/${id}/recommendations`
+    //     `/${mediaType}/${id}/data`
     // );
 
-    useEffect(() => {
-        const fetchRecommendations = async () => {
-            setLoading(true);
-            try {
-                const response = await axios.get(`http://localhost:9292/api/anime/recommendation/${id}`);
-                const responseData = response.data.data; // Extract the data array from the response
-                setRecommendations(responseData);
-                // console.log(data);
-                console.log("Recommendations", responseData);
-            } catch (error) {
-                console.error(error);
-                fetchRecommendations();
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchRecommendations();
-    }
-        , [id]);
+    // useEffect(() => {
+    //     const fetchdata = async () => {
+    //         setLoading(true);
+    //         try {
+    //             const response = await axios.get(`http://localhost:9292/api/anime/recommendation/${id}`);
+    //             const responseData = response.data.data; // Extract the data array from the response
+    //             setdata(responseData);
+    //             // console.log(data);
+    //             console.log("data", responseData);
+    //         } catch (error) {
+    //             console.error(error);
+    //             fetchdata();
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     }
+    //     fetchdata();
+    // }
+    //     , [id]);
 
 
 
     return (
         <ContentWrapper>
-            {recommendations && recommendations.length > 0 && (
+            {data && data.length > 0 && (
                 <Carousel
                     title="Recommendations"
-                    data={recommendations.map(item => item.entry)}
+                    data={data.map(item => item.entry)}
                 />
             )}
         </ContentWrapper>

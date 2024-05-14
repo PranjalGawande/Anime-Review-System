@@ -8,11 +8,23 @@ import AnimeDetails from './pages/AnimeDetails';
 import SearchResult from './pages/SearchResult';
 import Explore from './pages/Explore';
 import ViewMore from './pages/ViewMore';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Toaster
+          toastOptions={{
+            className: '',
+            style: {
+              width: 'auto',
+              padding: '16px',
+              fontSize: '1rem',
+              color: '#713200',
+            },
+          }}
+        />
         <Header />
         {/* <Nav /> */}
         <Routes>

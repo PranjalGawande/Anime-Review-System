@@ -17,35 +17,61 @@ import LazyloadImg from "./LazyloadImg";
 import CircleRating from "./CircleRating";
 import VideoPopup from "./VideoPopup";
 
-const AnimeDetailsBanner = () => {
-    const [loading, setLoading] = useState(false);
+const AnimeDetailsBanner = ({ data, stats, loading }) => {
+    // const [loading, setLoading] = useState(false);
     const { id } = useParams();
-    const [data, setData] = useState([]);
-    const [charactersData, setCharactersData] = useState([]);
+    console.log("id", id);
+    // const [data, setData] = useState([]);
+    // console.log("data", data);
+    // const [statsData, setStatsData] = useState([]);
+    // const [charactersData, setCharactersData] = useState([]);
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
 
-    const genres = data?.genres?.map((genre) => genre.name);
-    const themes = data?.themes?.map((theme) => theme.name);
+    // const genres = data?.genres?.map((genre) => genre.name);
+    const genres = data?.genres ? data.genres.map((genre) => genre.name) : [];
+    const themes = data?.themes ? data.themes.map((theme) => theme.name) : [];
+    console.log("genres", genres);
+    // const themes = data?.themes?.map((theme) => theme.name);
+    console.log("themes", themes);
 
-    useEffect(() => {
-        const fetchAnimeDetails = async () => {
-            setLoading(true);
-            try {
-                const response = await axios.get(`http://localhost:9292/api/anime/details/${id}`);
-                const data = response.data.data;
-                console.log(data);
-                setData(data);
-            } catch (error) {
-                console.error(error);
-                fetchAnimeDetails();
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchAnimeDetails();
-    }, [id]);
+    // useEffect(() => {
+    //     const fetchAnimeDetails = async () => {
+    //         setLoading(true);
+    //         console.log("useEffect")
+    //         try {
+    //             const response = await axios.get(`http://localhost:9292/api/anime/details/${id}`);
+    //             const data = response?.data?.data;
+    //             console.log("Anime details",data);
+    //             setData(data);
+    //         } catch (error) {
+    //             console.error(error);
+    //             fetchAnimeDetails();
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     }
+    //     fetchAnimeDetails();
+    // }, [id]);
+
+    // useEffect(() => {
+    //     const fetchStats = async () => {
+    //         setLoading(true);
+    //         try {
+    //             const response = await axios.get(`http://localhost:9292/api/anime/anime-stats/${id}`);
+    //             const statsdata = response.data.data;
+    //             console.log(statsdata);
+    //             setStatsData(statsdata);
+    //         } catch (error) {
+    //             console.error(error);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     }
+    //     fetchStats();
+    // }, [id]);
+
 
     // useEffect(() => {
     //     const fetchCharacters = async () => {
@@ -64,7 +90,9 @@ const AnimeDetailsBanner = () => {
     //     fetchCharacters();
     // }, [id]);
 
-    const producers = data?.producers?.map((producer) => producer.name);
+    // const producers = data?.producers?.map((producer) => producer?.name);
+    const producers = (data?.producers || []).map((producer) => producer?.name);
+    console.log("producers", producers);
     // const toHoursAndMinutes = (totalMinutes) => {
     //     const hours = Math.floor(totalMinutes / 60);
     //     const minutes = totalMinutes % 60;
@@ -105,13 +133,100 @@ const AnimeDetailsBanner = () => {
                                             // placeholder={NoImagePlaceholder}
                                             />
                                         )}
+                                        <div class="card mb-3">
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Type:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.type}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Episodes:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.episodes}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Episode Duration:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.duration}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Status:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.status}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Aired:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.aired?.string}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Season:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.season ? data?.season?.charAt(0).toUpperCase() + data.season.slice(1) : ''}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Score:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.score}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Scored By:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.scored_by}
+                                                </span>
+                                            </div>
+                                            <div className="infoItem">
+                                                <span className="text bold">
+                                                    Source:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.source}
+                                                </span>
+                                            </div>
+
+
+
+                                            {/* Error prone reading undefined */}
+                                            {data.studios && <div className="infoItem">
+                                                <span className="text bold">
+                                                    Studio:{" "}
+                                                </span>
+                                                <span className="text">
+                                                    {data?.studios?.map((studio) => studio.name).join(", ")}
+                                                </span>
+                                            </div>}
+
+                                        </div>
                                     </div>
                                     <div className="right">
                                         <div className="title">
-                                            {data.title_english ? data.title_english : data.title}
+                                            {data?.title_english ? data?.title_english : data?.title}
                                         </div>
                                         <div className="subtitle">
-                                            {data.title}
+                                            {data?.title}
                                         </div>
                                         {/* <Genres data={geners} /> */}
                                         <div className="genres">
@@ -139,12 +254,12 @@ const AnimeDetailsBanner = () => {
                                             </span>
                                         </div>
                                         <div className="row">
-                                            <CircleRating rating={data.score} />
+                                            <CircleRating rating={data?.score} />
                                             <div
                                                 className="playbtn"
                                                 onClick={() => {
                                                     setShow(true);
-                                                    setVideoId(data.trailer.youtube_id);
+                                                    setVideoId(data?.trailer?.youtube_id);
                                                 }}
                                             >
                                                 <svg
@@ -190,10 +305,19 @@ const AnimeDetailsBanner = () => {
                                                 Synopsis
                                             </div>
                                             <div className="description">
-                                                {data.synopsis}
+                                                {data?.synopsis}
                                             </div>
                                         </div>
-                                        <div className="info">
+                                        {data?.background && (<div className="overview">
+                                            <div className="heading">
+                                                Background
+                                            </div>
+                                            <div className="description">
+                                                {data?.background}
+                                            </div>
+                                        </div>)
+                                        }
+                                        {/* <div className="info">
                                             {data.status && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
@@ -234,8 +358,49 @@ const AnimeDetailsBanner = () => {
                                                     </span>
                                                 </div>
                                             )}
-                                        </div>
-                                        {charactersData && (
+                                        </div> */}
+
+                                        {!!stats.watching && (
+                                            <div className="status-distribution">
+                                                <span className="d-flex justify-content-start text bold">Status Distribution</span>
+                                                <div className="status-bars">
+                                                    <div className="status-bar bg-primary-subtle">
+                                                        <div className="status-bar-label text-primary">Watching</div>
+                                                        {/* <div className="status-bar-fill" style={{ width: '80%' }}> */}
+                                                        {stats.watching} users
+                                                        {/* </div> */}
+                                                    </div>
+                                                    <div className="status-bar bg-success-subtle">
+                                                        <div className="status-bar-label text-success">Completed</div>
+                                                        {/* <div className="status-bar-fill" style={{ width: '80%' }}> */}
+                                                        {stats.completed} users
+                                                        {/* </div> */}
+                                                    </div>
+                                                    <div className="status-bar bg-warning-subtle">
+                                                        <div className="status-bar-label text-warning">Planning</div>
+                                                        {/* <div className="status-bar-fill" style={{ width: '10%' }}> */}
+                                                        {stats.plan_to_watch} users
+                                                        {/* </div> */}
+                                                    </div>
+                                                    <div className="status-bar bg-info-subtle">
+                                                        <div className="status-bar-label text-info">On Hold</div>
+                                                        {/* <div className="status-bar-fill" style={{ width: '4%' }}> */}
+                                                        {stats.on_hold} users
+                                                        {/* </div> */}
+                                                    </div>
+                                                    <div className="status-bar bg-danger-subtle">
+                                                        <div className="status-bar-label text-danger">Dropped</div>
+                                                        {/* <div className="status-bar-fill" style={{ width: '2%' }}> */}
+                                                        {stats.dropped} users
+                                                        {/* </div> */}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )
+                                        }
+
+
+                                        {!!data && (
                                             <div className="info">
                                                 <span className="text bold">
                                                     Anime Producers:{" "}

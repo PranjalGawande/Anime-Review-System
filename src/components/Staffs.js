@@ -10,27 +10,28 @@ import ContentWrapper from "./ContentWrapper";
 import avatar from "./assets/avatar.jpg";
 import LazyloadImg from "./LazyloadImg";
 
-const Characters = ({ data, loading }) => {
-    // const [data, setdata] = useState([]);
+const Staffs = ({ data, loading }) => {
+    // const [data, setdata] = useState(null);
     // const [loading, setLoading] = useState(false);
     const carouselContainer = useRef(null);
     const { id } = useParams();
 
     // useEffect(() => {
-    //     const fetchCharacters = async () => {
+    //     const fetchstaff = async () => {
     //         setLoading(true);
     //         try {
-    //             const response = await axios.get(`http://localhost:9292/api/anime/characters-list/${id}`);
+    //             const response = await axios.get(`http://localhost:9292/api/anime/staff-list/${id}`);
     //             const data = response.data.data;
-    //             console.log(data);
+    //             console.log("Staff data", data);
     //             setdata(data);
     //         } catch (error) {
+    //             fetchstaff();
     //             console.error(error);
     //         } finally {
     //             setLoading(false);
     //         }
     //     }
-    //     fetchCharacters();
+    //     fetchstaff();
     // }, [id]);
 
     const skeleton = () => {
@@ -56,9 +57,12 @@ const Characters = ({ data, loading }) => {
     };
 
     return (
-        <div className="CharactersSection">
+        <div className="StaffSection">
             <ContentWrapper>
-                <div className="sectionHeading">Characters</div>
+                {
+                    data && 
+                    <div>
+                <div className="sectionHeading">Staff</div>
                 <button className="carousel-control-prev arrow carouselLeftNav" type="button" data-bs-target="#carouselExample" data-bs-slide="prev"
                     onClick={() => {
                         navigation("left");
@@ -76,30 +80,35 @@ const Characters = ({ data, loading }) => {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
+
                 {!loading ? (
                     <div className="listItems" ref={carouselContainer}>
-                        {data?.map((item) => {
-                            let Image_url = item.character.images.jpg.image_url ? item.character.images.jpg.image_url : avatar;
-                            return (
-                                <div 
-                                    key={item.id}
-                                    className="listItem"
-                                >
-                                    <div className="profileImg">
-                                        <LazyloadImg src={Image_url} />
+                        {
+                            data?.map((item) => {
+                                let Image_url = item?.person?.images?.jpg?.image_url ? item?.person?.images?.jpg?.image_url : avatar;
+                                if (Image_url && Image_url.includes('questionmark')) {
+                                    Image_url = avatar;
+                                }
+                                return (
+                                    <div
+                                        key={item?.id}
+                                        className="listItem"
+                                    >
+                                        <div className="profileImg">
+                                            <LazyloadImg src={Image_url} />
+                                        </div>
+                                        <div className="name">
+                                            {item?.person?.name}
+                                        </div>
+                                        <div className="staff">
+                                            {item?.positions[0]}
+                                        </div>
                                     </div>
-                                    <div className="name">
-                                        {item.character.name}
-                                    </div>
-                                    <div className="character">
-                                        {item.role}
-                                    </div>
-                                </div>
-                            )
-                        })}
+                                )
+                            })}
                     </div>
                 ) : (
-                    <div className="CharactersSkeleton">
+                    <div className="staffSkeleton">
                         {skeleton()}
                         {skeleton()}
                         {skeleton()}
@@ -108,9 +117,11 @@ const Characters = ({ data, loading }) => {
                         {skeleton()}
                     </div>
                 )}
+                </div>
+                }
             </ContentWrapper>
         </div>
     );
 };
 
-export default Characters;
+export default Staffs;
