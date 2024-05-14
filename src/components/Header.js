@@ -20,6 +20,7 @@ const Header = () => {
   const [genresData, setGenresData] = useState(null);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const loginRef = useRef(null);
+  const [token, setToken] = useState(null);
 
 
   useEffect(() => {
@@ -45,6 +46,26 @@ const Header = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location])
+
+  const searchQueryHandler = (event) => {
+    if (event.key === "Enter" && query.length > 0) {
+      navigate(`/search/${query}`);
+      setTimeout(() => {
+        setShowSearch(false);
+      }, 1000);
+    }
+  };
+
+
+  const openSearch = () => {
+    setMobileMenu(false);
+    setShowSearch(true);
+  };
+
+  const openMobileMenu = () => {
+    setMobileMenu(true);
+    setShowSearch(false);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -101,21 +122,52 @@ const Header = () => {
     fetchGenres();
   }, []);
 
+  useEffect(() => {
+    setToken(sessionStorage.getItem("token"));
+  }, [token])
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    setToken(null); // Update token state to trigger rerender
+  };
+
+  const getRandomAnime = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:9292/api/anime/random-anime"
+      );
+      const animeId = response.data.data.mal_id;
+      navigate(`/anime/${animeId}`, { state: { data: response.data.data } });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <header className={`header ${mobileMenu ? "mobileView" : ""} ${show} ${showLoginForm ? "blur" : ""}`}>
       <ContentWrapper>
         <div className="logo">
-          <a href="/">ANIMIX</a>
+          <span className="menuItem" onClick={() => navigate("/")}>ANIMIX</span>
         </div>
         <ul className="menuItems">
           <li className="menuItem" onClick={() => navigate("/explore", { state: { genresData: genresData } })}>
             EXPLORE
           </li>
-          <li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>
-          <li className="menuItem">SIGNUP</li>
+          <li className="menuItem" onClick={() => getRandomAnime()}>
+            RANDOM
+          </li>
+          {!token ? (<li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>)
+            : (<li className="menuItem logout" onClick={handleLogout}>LOGOUT</li>)}
+          {/* <li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>
+          <li className="menuItem">SIGNUP</li> */}
+          <li className="menuItem">
+            <HiOutlineSearch onClick={openSearch} />
+          </li>
         </ul>
 
+
         <div className="mobileMenuItems">
+          {/* <HiOutlineSearch onClick={openSearch} /> */}
           {mobileMenu ? (<VscChromeClose
             onClick={toggleMobileMenu}
           />)
@@ -126,8 +178,29 @@ const Header = () => {
         </div>
       </ContentWrapper>
 
-      {showLoginForm && <LoginForm ref={loginRef}
-        onClose={() => setShowLoginForm(false)} />}
+      {showSearch && (
+        <div className="searchBar">
+          <ContentWrapper>
+            <div className="searchInput">
+              <input
+                type="text"
+                placeholder="Search for a Anime"
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyUp={searchQueryHandler}
+              />
+              <VscChromeClose
+                onClick={() => setShowSearch(false)}
+              />
+            </div>
+          </ContentWrapper>
+        </div>
+      )}
+
+      <div className={`loginFormWrapper ${showLoginForm ? "show" : ""}`}>
+        {showLoginForm && <LoginForm setToken={setToken} ref={loginRef}
+          onClose={() => setShowLoginForm(false)} />}
+      </div>
+
     </header>
   );
 };

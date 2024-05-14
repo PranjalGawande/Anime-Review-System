@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const LoginForm = ({ onClose }) => {
+const LoginForm = ({ onClose, setToken }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -16,11 +16,7 @@ const LoginForm = ({ onClose }) => {
             });
             const token = response.data.token;
             sessionStorage.setItem('token', token); // Store the token in session storage
-            // Assuming the response contains a token or some indication of successful login
-            // console.log('Login successful:', response.data);
-            // You can handle the successful login response here
-            // For example, you can redirect the user to a dashboard or set some state indicating they are logged in
-            // After successful login, you can close the login form
+            setToken(token); // Update the token state
             onClose();
             toast.success('Login successful', {
                 duration: 3000,
@@ -55,7 +51,9 @@ const LoginForm = ({ onClose }) => {
                         <input required className="input" type="password" name="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     </div>
                     {/* <span className="forgot-password"><a href="#">Forgot Password ?</a></span> */}
-                    <input className="login-button" type="submit" value="Sign In" />
+                    <input className="login-button" type="submit" value="Log In" />
+                    <span>OR</span>
+                    <input className="register-button" type="submit" value="Register" />
                 </form>
                 {/* <div className="social-account-container">
                     <span className="title">Or Sign in with</span>

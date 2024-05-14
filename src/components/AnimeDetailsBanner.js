@@ -255,8 +255,9 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                         </div>
                                         <div className="row">
                                             <CircleRating rating={data?.score} />
+                                            {/* <span className="text fw-semibold w-auto ml-5">Score</span> */}
                                             <div
-                                                className="playbtn"
+                                                className="playbtn fw-semibold"
                                                 onClick={() => {
                                                     setShow(true);
                                                     setVideoId(data?.trailer?.youtube_id);

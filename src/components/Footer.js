@@ -12,7 +12,7 @@ import ContentWrapper from "./ContentWrapper";
 
 const Footer = () => {
     return (
-        <footer className="footer">
+        <footer className="footer mt-5">
             <ContentWrapper>
                 <ul className="menuItems">
                     <li className="menuItem">Home</li>
