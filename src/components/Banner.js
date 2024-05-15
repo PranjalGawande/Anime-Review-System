@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import LazyloadImg from './LazyloadImg'
 import ContentWrapper from './ContentWrapper'
-import BackImage from './assets/1358782.jpeg'
 
 
 const Banner = () => {
