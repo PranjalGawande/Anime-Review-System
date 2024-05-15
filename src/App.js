@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/anime/:id" element={<AnimeDetails />} />
           <Route path='/search/:query' element={<SearchResult />} />
-          <Route path='/explore' element={<Explore />} />
+          <Route path='/:explore' element={<Explore />} />
           <Route path='/viewmore/:type' element={<ViewMore />} />
           {/* {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/product" element={<Product />} /> */}

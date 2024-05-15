@@ -364,6 +364,7 @@ const sortbyData = [
 const Explore = () => {
     const [data, setData] = useState({ pagination: {}, data: [] });
     const [pageNum, setPageNum] = useState(1);
+    // let pageNum = 1;
     const [loading, setLoading] = useState(false);
     const [genre, setGenre] = useState([]);
     const [sortby, setSortby] = useState(null);
@@ -371,25 +372,35 @@ const Explore = () => {
     const [noRefresh, setNoRefresh] = useState(false);
     const [selectedGenres, setSelectedGenres] = useState([]);
     const location = useLocation();
+    const [genrePageNum, setGenrePageNum] = useState(1);
+    const { explore } = useParams();
 
     const fetchData = async () => {
         setLoading(true);
         try {
+            // setPageNum(1);
+            // await new Promise(resolve => setTimeout(resolve, 5000));
             const params = new URLSearchParams();
-            params.append('page', pageNum);
+            // params.append('page', pageNum);
+            await new Promise(resolve => setTimeout(resolve, 500));
 
-            if (sortby) {
-                params.append('sort', sortby.value);
+            // setTimeout(() => {
+            // if (!filters.length) {
+            //     // const genreIds = selectedGenres.map((g) => g.mal_id).join(',');
+            //     // const genreId = selectedGenres.mal_id;
+            //     params.append('genres', filters.with_genres);
+            // }
+            // }, 5000);
+
+            if (filters.with_genres) {
+                params.append('page', genrePageNum);
+                params.append('genres', filters.with_genres);
+            }
+            else {
+                params.append('page', pageNum);
             }
 
-            setTimeout(() => {
-                if (selectedGenres.length > 0) {
-                const genreIds = selectedGenres.map((g) => g.mal_id).join(',');
-                params.append('genres', genreIds);
-            }
-            }, 5000);
-
-            
+            console.log("filterData", filters.with_genres);
 
             console.log("params", params.toString());
 
@@ -397,9 +408,16 @@ const Explore = () => {
             const newData = response.data;
             setData(prevData => ({
                 pagination: newData.pagination,
+                // data: [...(prevData?.data || []), ...newData.data]
                 data: newData.data
             }));
-            setPageNum(prevPageNum => prevPageNum + 1);
+            if (filters.with_genres) {
+                setGenrePageNum(prevPageNum => prevPageNum + 1);
+            } else {
+                setPageNum(prevPageNum => prevPageNum + 1);
+            }
+            // pageNum = pageNum + 1;
+            console.log("PageNum", pageNum);
         } catch (error) {
             console.error(error);
         } finally {
@@ -407,15 +425,70 @@ const Explore = () => {
         }
     };
 
-    // useEffect(() => {
-    //     if (!noRefresh) {
-    //         filters = {};
-    //         setData(null);
-    //         setPageNum(1);
-    //         setSortby(null);
-    //         fetchData();
-    //     }
-    // }, [noRefresh]); // Add genre to the dependency array
+
+    const fetchNextPageData = async () => {
+        const params = new URLSearchParams();
+        // var pageNum = 2;
+        // await new Promise(resolve => setTimeout(resolve, 5000));
+        // params.append('page', pageNum);
+        // console.log("pageNum", pageNum);
+
+        // setTimeout(() => {
+        // if (!filters.length) {
+        //     // const genreIds = selectedGenres.map((g) => g.mal_id).join(',');
+        //     // const genreId = selectedGenres.mal_id;
+        //     params.append('genres', filters.with_genres);
+        // }
+        // }, 5000);
+
+        if (filters.with_genres) {
+            params.append('page', genrePageNum);
+            params.append('genres', filters.with_genres);
+        }
+        else {
+            params.append('page', pageNum);
+        }
+
+        console.log("Params next", params.toString());
+        // const genreQueryParam = genre ? `&genres=${genre.map(g => g.mal_id).join(',')}` : '';
+        // setTimeout(() => {
+        // console.log("genreQueryParam", genreQueryParam);
+        // }, 5000);
+        // console.log("genreQueryParam", genreQueryParam);
+        try {
+            const response = await axios.get(`http://localhost:9292/api/anime/explore?${params}`).then((response) => {
+                if (data?.data) {
+                    setData({
+                        ...data, data: [...data?.data, ...response.data.data]
+                    })
+                } else {
+                    setData(response.data);
+                }
+                console.log("Nextdata", data);
+                if (filters.with_genres) {
+                    setGenrePageNum((prev) => prev + 1);
+                }
+                else {
+                    setPageNum((prev) => prev + 1);
+                }
+                // pageNum = pageNum + 1;
+            }
+            );
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        // if (!noRefresh) {
+        filters = {};
+        setData(null);
+        setPageNum(1);
+        // pageNum = 1;
+        setSortby(null);
+        fetchData();
+        // }
+    }, [explore]); // Add genre to the dependency array
 
     const onChange = (selectedItems, action) => {
         if (action.name === "sortby") {
@@ -430,23 +503,33 @@ const Explore = () => {
         if (action.name === "genres") {
             setGenre(selectedItems);
             if (action.action !== "clear") {
-                let genreId = selectedItems.map((g) => g.id);
-                genreId = JSON.stringify(genreId).slice(1, -1);
+                let genreId = selectedItems.mal_id;
+                // let genreId = selectedItems.map((g) => g.mal_id);
+                // genreId = JSON.stringify(genreId).slice(1, -1);
                 filters.with_genres = genreId;
+                console.log("filters", filters.with_genres);
             } else {
                 delete filters.with_genres;
             }
         }
 
         setPageNum(1);
-        setNoRefresh(prev => !prev); // Toggle the value to trigger useEffect
+        setGenrePageNum(1);
+        // pageNum = 1;
+        // setTimeout(5000);
+        // setTimeout(() => {
+        fetchData();
+        // }, 5000);
+
+        // setNoRefresh(prev => !prev); // Toggle the value to trigger useEffect
     };
 
-    const handleApply = () => {
-        setPageNum(1);
-        setSelectedGenres([...genre]); // Save selected genres
-        fetchData(); // Fetch data with selected genres
-    };
+    // const handleApply = () => {
+    //     setPageNum(1);
+    //     setSelectedGenres(genre); // Save selected genres
+    //     console.log("selectedGenres", genre);
+    //     fetchData(); // Fetch data with selected genres
+    // };
 
     return (
         <div className="explorePage">
@@ -457,19 +540,23 @@ const Explore = () => {
                     </div>
                     <div className="filters">
                         <Select
-                            isMulti
+                            // isMulti
                             name="genres"
                             value={genre}
-                            closeMenuOnSelect={false}
+                            closeMenuOnSelect={true}
                             options={genreData}
+                            isClearable={true}
                             getOptionLabel={(option) => option.name}
                             getOptionValue={(option) => option.mal_id}
-                            onChange={(selectedItems) => setGenre(selectedItems)}
+                            // onChange={(selectedItems) => setGenre(selectedItems)}
+                            onChange={onChange}
+                            // onMenuClose={setPageNum(1)}
+                            // onChange={setPageNum(1)}
                             placeholder="Select genres"
                             className="react-select-container genresDD"
                             classNamePrefix="react-select"
                         />
-                        <Select
+                        {/* <Select
                             name="sortby"
                             value={sortby}
                             options={sortbyData}
@@ -478,10 +565,10 @@ const Explore = () => {
                             placeholder="Sort by"
                             className="react-select-container sortbyDD"
                             classNamePrefix="react-select"
-                        />
-                         <button onClick={handleApply}>Apply</button>
+                        /> */}
+                        {/* <button onClick={handleApply}>Apply</button> */}
                     </div>
-                    
+
                 </div>
                 {loading && <Spinner initial={true} />}
                 {!loading && (
@@ -490,7 +577,7 @@ const Explore = () => {
                             <InfiniteScroll
                                 className='content'
                                 dataLength={data?.data?.length || []}
-                                next={fetchData} // Use fetchData instead of fetchNextPageData
+                                next={fetchNextPageData} // Use fetchData instead of fetchNextPageData
                                 hasMore={pageNum <= data?.pagination?.last_visible_page && data?.pagination?.has_next_page}
                                 loader={<Spinner />}
                             >
