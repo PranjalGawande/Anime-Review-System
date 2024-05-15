@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.List;
 
 @Setter
 @Getter
@@ -23,6 +24,9 @@ public class User implements UserDetails {
     @Column(name = "user_id")
     private Integer userId;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
@@ -34,6 +38,14 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private boolean status;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> commentList;
+
+    @ElementCollection
+    @CollectionTable(name = "watched_anime_ids")
+    @Column(name = "anime_id")
+    private List<Integer> watchedAnimeIds;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

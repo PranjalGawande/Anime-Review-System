@@ -28,15 +28,12 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req -> req.requestMatchers("/login/**")
-                                .permitAll()
-                                .requestMatchers("/register/**")
-                                .permitAll()
-                                .requestMatchers("/api/anime/**")
+                        req -> req.requestMatchers("/login/**", "/register/**", "/api/anime/**", "/getComment/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()
-                ).userDetailsService(loginDetailService)
+                        )
+                .userDetailsService(loginDetailService)
                 .sessionManagement(
                         session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

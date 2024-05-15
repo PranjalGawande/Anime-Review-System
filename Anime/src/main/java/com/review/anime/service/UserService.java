@@ -10,7 +10,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -51,5 +53,32 @@ public class UserService {
 
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    public List<Integer> getAnimeWatchList(Integer userId) {
+        Optional<User> user = userRepository.findById(userId);
+        if (user.isPresent()) {
+            return user.get().getWatchedAnimeIds();
+        } else {
+            return Collections.emptyList();
+        }
+    }
+
+    public String addWatchedAnimeId(Integer animeId, String email) {
+        Optional<User> user = Optional.ofNullable(findUserByEmail(email));
+        if (user.isEmpty()) {
+            return "User not Found";
+        }
+
+        List<Integer> watchedAnimeList = user.get().getWatchedAnimeIds();
+
+        if(!watchedAnimeList.contains(animeId)) {
+            watchedAnimeList.add(animeId);
+            userRepository.save(user.get());
+            return "Anime added to watch list.";
+        }
+        else {
+            return "Anime already in watch list.";
+        }
     }
 }
