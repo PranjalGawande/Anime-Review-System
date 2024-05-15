@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import LazyloadImg from './LazyloadImg'
 import ContentWrapper from './ContentWrapper'
+import BackImage from './assets/1358782.jpeg'
 
 
 const Banner = () => {
@@ -10,6 +11,19 @@ const Banner = () => {
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
+
+    const backgroundImages = [
+        "https://wallpaper.forfun.com/fetch/d3/d374fe163503d05842a7a202e0d15a44.jpeg?w=1470&r=0.5625",
+        "https://images3.alphacoders.com/134/1342304.jpeg",
+        "https://img.youtube.com/vi/jKNscVwATwI/maxresdefault.jpg",
+        "https://cdn.oneesports.gg/cdn-data/2024/03/Anime_GoGoLoserRanger_MainTrio_SouseiAkabane_YumekoSuzukiri_HibikiSakurama-1024x576.jpg",
+        "https://statico.sportskeeda.com/editor/2024/01/848c6-17054091449470-1920.jpg",
+        "https://img.youtube.com/vi/NvD4Qg2DgJc/maxresdefault.jpg",
+        "https://img.youtube.com/vi/k5qM1PoLmUc/maxresdefault.jpg",
+        "https://images4.alphacoders.com/135/thumb-1920-1358782.jpeg",
+        "https://img.youtube.com/vi/vT9Cio_EIEE/maxresdefault.jpg",
+        "https://img.youtube.com/vi/Tf31dGdlWxE/maxresdefault.jpg"
+    ];
 
     const searchQueryHandler = (event) => {
         if (event.key === 'Enter' && query.length > 0) {
@@ -26,8 +40,8 @@ const Banner = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:9292/api/anime/background-images');
-                const data = response.data;
+                // const response = await axios.get('http://localhost:9292/api/anime/background-images');
+                const data = backgroundImages;
                 const randomIndex = Math.floor(Math.random() * data.length);
                 setBackground(data[randomIndex]);
                 setLoading(false);
