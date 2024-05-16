@@ -91,9 +91,9 @@ const Header = () => {
   useEffect(() => {
     const body = document.body;
     if (showLoginForm) {
-      body.style.overflow = "hidden"; // Disable scrolling
+      body.style.overflow = "hidden"; // Prevent scrolling
     } else {
-      body.style.overflow = "visible"; // Enable scrolling
+      body.style.overflow = "visible"; // Allow scrolling
     }
   }, [showLoginForm]);
 
@@ -166,8 +166,6 @@ const Header = () => {
 
           {!token ? (<li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>)
             : (<li className="menuItem logout" onClick={handleLogout}>LOGOUT</li>)}
-          {/* <li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>
-          <li className="menuItem">SIGNUP</li> */}
           <li className="menuItem">
             <HiOutlineSearch onClick={openSearch} />
           </li>
@@ -175,7 +173,6 @@ const Header = () => {
 
 
         <div className="mobileMenuItems">
-          {/* <HiOutlineSearch onClick={openSearch} /> */}
           {mobileMenu ? (<VscChromeClose
             onClick={toggleMobileMenu}
           />)
