@@ -20,7 +20,7 @@ public class Review {
 
     private Float rating;
 
-    @Column(name = "comment", length = 500)
+    @Column(name = "comment", length = 1000)
     private String comment;
 
     @ManyToOne

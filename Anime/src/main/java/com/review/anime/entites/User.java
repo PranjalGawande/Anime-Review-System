@@ -42,10 +42,8 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> commentList;
 
-    @ElementCollection
-    @CollectionTable(name = "watched_anime_ids")
-    @Column(name = "anime_id")
-    private List<Integer> watchedAnimeIds;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<WatchList> watchLists;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

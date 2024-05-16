@@ -32,6 +32,7 @@ public class AnimeApplication {
 			User user = new User();
 			user.setEmail("hari@gmail.com");
 			user.setPassword("Hari");
+			user.setName("Hari");
 			user.setRole(Role.ADMIN);
 			user.setStatus(true);
 

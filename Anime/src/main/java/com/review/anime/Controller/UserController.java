@@ -6,12 +6,16 @@ import com.review.anime.dto.Token;
 import com.review.anime.entites.Review;
 import com.review.anime.entites.Role;
 import com.review.anime.entites.User;
+import com.review.anime.entites.WatchList;
 import com.review.anime.service.ReviewService;
 import com.review.anime.service.UserService;
 import jakarta.persistence.criteria.CriteriaBuilder;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -95,7 +99,7 @@ public class UserController {
 
     @GetMapping("/getWatchList")
     @PreAuthorize("hasAuthority('user:get')")
-    public ResponseEntity<List<Integer>> getWatchList(@RequestParam Integer userId, @AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<Object> getWatchList(@RequestParam Integer userId, @AuthenticationPrincipal UserDetails userDetails) {
         String email = userDetails.getUsername();
         User user = userService.findUserByEmail(email);
 
@@ -103,24 +107,42 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
 
-        List<Integer> animeIds = userService.getAnimeWatchList(userId);
+        List<WatchList> watchList = user.getWatchLists();
 
-        if(animeIds.isEmpty()) {
-            return ResponseEntity.ok(Collections.emptyList());
+        if (watchList.isEmpty()) {
+            JSONObject emptyResponse = new JSONObject().put("data", new JSONArray());
+            return new ResponseEntity<>(emptyResponse.toMap(), HttpStatus.OK);
         }
 
-        return ResponseEntity.ok(animeIds);
+        JSONArray dataArray = new JSONArray();
+        for (WatchList watchListItem : watchList) {
+            JSONObject animeObject = new JSONObject();
+            animeObject.put("animeId", watchListItem.getAnimeId());
+
+            JSONObject imagesObject = new JSONObject();
+            imagesObject.put("image_url", watchListItem.getImageUrl());
+            animeObject.put("images", imagesObject);
+
+            animeObject.put("title", watchListItem.getTitle());
+
+            dataArray.put(animeObject.toMap());
+        }
+
+        JSONObject watchListJson = new JSONObject();
+        watchListJson.put("data", dataArray);
+
+        return new ResponseEntity<>(watchListJson.toMap(), HttpStatus.OK);
     }
 
     @PostMapping("/addWatchList")
     @PreAuthorize("hasAuthority('user:post')")
-    public ResponseEntity<String> addWatchList(@RequestBody ExtraDTO extraDTO, @AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<String> addWatchList(@RequestBody WatchList watchList, @AuthenticationPrincipal UserDetails userDetails) {
         String email = userDetails.getUsername();
         if ( email == null ) {
             return ResponseEntity.badRequest().body("User is not Logged In.");
         }
 
-        String result = userService.addWatchedAnimeId(extraDTO.getAnimeId(), email);
+        String result = userService.addWatchedAnimeId(watchList, email);
         return ResponseEntity.ok().body(result);
     }
 }
