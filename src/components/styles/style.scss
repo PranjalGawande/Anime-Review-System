@@ -42,7 +42,7 @@
                 height: 100%;
                 object-fit: cover;
                 // object-position: center;
-                object-position: center ;
+                object-position: center;
             }
         }
     }
@@ -189,7 +189,7 @@
     align-items: center;
     transition: all ease 0.5s;
     z-index: 2;
-    
+
 
     // .loginFormWrapper {
     //     // position: fixed;
@@ -410,45 +410,63 @@
 
     .menuItems {
         list-style-type: none;
+        padding: 0;
+        margin: 0;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 20px;
-
-        @include md {
-            margin-bottom: 30px;
-            gap: 30px;
-        }
+        justify-content: space-between;
+        width: 100%;
 
         .menuItem {
-            transition: all ease 0.3s;
-            cursor: pointer;
-            font-size: 12px;
+            flex: 1;
+            margin: 0 10px;
+            text-align: justify;
+            padding-left: 15%;
 
-            @include md {
-                font-size: 16px;
+            .address ul {
+                list-style-type: none;
+                padding: 0;
             }
-
-            &:hover {
-                color: var(--pink);
+        
+            .address li {
+                margin-bottom: 5px;
+            }
+        
+            a {
+                color: #089edf;
+                text-decoration: none;
+            }
+        
+            a:hover {
+                text-decoration: underline;
             }
         }
+
+        .menuItem .title {
+            font-size: 1.5em;
+            // text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
     }
 
-    // .infoText {
-    //     font-size: 12px;
-    //     line-height: 20px;
-    //     opacity: 0.5;
-    //     text-align: center;
-    //     max-width: 800px;
-    //     margin-bottom: 20px;
-    //     @include md {
-    //         font-size: 14px;
-    //         margin-bottom: 30px;
-    //     }
-    // }   
+
+
+    
 }
+
+// .infoText {
+//     font-size: 12px;
+//     line-height: 20px;
+//     opacity: 0.5;
+//     text-align: center;
+//     max-width: 800px;
+//     margin-bottom: 20px;
+//     @include md {
+//         font-size: 14px;
+//         margin-bottom: 30px;
+//     }
+// }   
+
 
 
 .carouselPopularSeason {
@@ -681,6 +699,8 @@
                     height: 100%;
                     border-radius: 12px;
                     overflow: hidden;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
 
                     img {
                         width: 100%;
@@ -933,14 +953,15 @@
                 .CircularProgressbar-text {
                     fill: white;
                 }
-                
+
             }
-            
 
             .playbtn {
                 display: flex;
                 align-items: center;
                 gap: 20px;
+                width: auto;
+                margin-right: -50px;
                 cursor: pointer;
 
                 svg {
@@ -951,7 +972,17 @@
                     }
                 }
 
+                svg {
+                    transition: all 0.7s ease-in-out;
+                }
+
                 .text {
+                    font-size: 20px;
+                    transition: all 0.7s ease-in-out;
+                }
+
+                .textWatchList {
+                    margin-left: -30px;
                     font-size: 20px;
                     transition: all 0.7s ease-in-out;
                 }
@@ -974,6 +1005,16 @@
                 &:hover {
                     .text {
                         color: red;
+                    }
+
+                    .textWatchList {
+                        color: rgb(13, 228, 157);
+                        // box-shadow: 0 0 10px 0 rgb(22, 209, 241);
+                    }
+
+                    svg {
+                        color: rgb(13, 228, 157);
+                        transition: all 0.5s ease-in-out;
                     }
 
                     .triangle {
@@ -1489,6 +1530,84 @@
     }
 }
 
+.review-section {
+    position: relative;
+    text-align: start;
+    margin-bottom: 50px;
+    height: 100%;
+
+    .sectionHeading {
+        font-size: 24px;
+        color: black;
+        margin-bottom: 25px;
+    }
+
+    // .review-list {
+    //     display: flex;
+    //     flex-direction: column;
+    //     // justify-content: space-between;
+    //     gap: 20px;
+    //     padding-bottom: 60px; /* Make space for the button */
+
+    // }
+
+    // .review {
+    //     // display: flex;
+    //     max-height: 300px;
+    //     align-items: center;
+    //     padding: 15px;
+    //     border: 1px solid #ddd;
+    //     border-radius: 10px;
+    //     background-color: #fff;
+    //     overflow: auto;
+    //     scrollbar-width: thin;
+    //     scrollbar-color: #ddd #fff;
+    //     padding-bottom: 60px; /* Make space for the button */
+
+    // }
+
+    // .submit-button-container .btn {
+    //     width: auto;
+    //   }
+
+    // .submit-button-container {
+    //     position: absolute;
+    //     bottom: 30;
+    //     // top: 40;
+    //     left: 50;
+    //     // width: 100%;
+    //     text-align: center;
+    //     padding: 10px 0;
+    //     background: #fff; /* Ensure background color matches the parent container */
+    //   }
+
+    .circleRating {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        // top: 30px;
+        background-color: white;
+        flex-shrink: 0;
+
+        @include md {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    // .review h3 {
+    //     margin: 0 0 10px 0;
+    // }
+
+    .review p {
+        margin: 0 10px;
+    }
+
+    // .review p strong {
+    //     font-weight: bold;
+    // }
+}
+
 .searchResultsPage {
     text-align: start;
     min-height: 700px;
@@ -1519,6 +1638,10 @@
         .animeCard {
             .imageBlock {
                 margin-bottom: 20px;
+
+                .Img {
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+                }
             }
         }
     }
@@ -1573,6 +1696,42 @@
     }
 }
 
+.review-container {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.review-list {
+    max-height: 600px;
+    /* Set this to your desired height */
+    scrollbar-width: thin;
+    overflow-y: auto;
+    padding-bottom: 60px;
+    /* Make space for the button */
+}
+
+.submit-button-container {
+    position: absolute;
+    display: flex;
+    justify-content: start;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    // padding-left: 10%;
+    background: #fff;
+    /* Ensure background color matches the parent container */
+    border-radius: 10px;
+}
+
+.submit-button-container .btn {
+    width: auto;
+    margin-left: 10px;
+}
+
+
 .animeCard {
     width: calc(50% - 5px);
     margin-bottom: 25px;
@@ -1608,6 +1767,8 @@
             height: 100%;
             border-radius: 12px;
             overflow: hidden;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
 
             img {
                 width: 100%;
@@ -1615,6 +1776,21 @@
                 object-fit: cover;
                 object-position: center;
             }
+        }
+
+        .removeButton {
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .removeButton:hover {
+            color: #ff0000;
         }
 
         .circleRating {
@@ -1685,6 +1861,7 @@
     .pageTitle {
         font-size: 24px;
         line-height: 34px;
+        font-weight: 600;
         color: rgb(0, 0, 0);
         margin-bottom: 20px;
 

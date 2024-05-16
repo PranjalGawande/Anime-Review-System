@@ -25,7 +25,8 @@ const SearchResult = () => {
                 const newData = response.data;
                 setData(prevData => ({
                     pagination: newData.pagination,
-                    data: [...prevData.data, ...newData.data]
+                    // data: [...prevData.data, ...newData.data]
+                    data: newData.data
                 }));
                 console.log("First Data", data);
                 // console.log("PageNum Before", pageNum);
@@ -45,42 +46,6 @@ const SearchResult = () => {
         // This effect runs whenever pageNum changes
         console.log("PageNum changed:", pageNum);
     }, [pageNum]);
-
-    // const fetchNextPageData = async () => {
-    //     try {
-    //         const nextPage = pageNum + 1;
-    //         const response = await axios.get(`http://localhost:9292/api/anime/search?q=${query}&page=${nextPage}`).then((response) => {
-    //             if (data?.data) {
-    //                 setData({
-    //                     ...data, data: [...data?.data, ...response.data.data]
-    //                 })
-    //             } else {
-    //                 setData(response.data.data);
-    //             }
-    //             console.log("Nextdata", data);
-    //             setPageNum(nextPage);
-    //         }
-    //         );
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-
-    // const fetchNextPageData = async () => {
-    //     try {
-    //         // const nextPage = pageNum + 1;
-    //         const response = await axios.get(`http://localhost:9292/api/anime/search?q=${query}&page=${pageNum}`);
-    //         const responseData = response.data;
-    //         setData(prevData => ({
-    //             pagination: responseData.pagination,
-    //             data: [...prevData.data, ...responseData.data]
-    //         }));
-    //         setPageNum(prevPageNum => prevPageNum + 1);
-    //         // setPageNum(nextPage);
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
 
     const fetchNextPageData = async () => {
         // fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(

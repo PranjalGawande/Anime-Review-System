@@ -4,10 +4,9 @@ import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-// import "./styles/style.scss";
 import ContentWrapper from "./ContentWrapper";
-// import logo from "../../assets/movix-logo.svg";
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const Header = () => {
   const [show, setShow] = useState("top");
@@ -17,8 +16,8 @@ const Header = () => {
   const [showSearch, setShowSearch] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const [genresData, setGenresData] = useState(null);
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [showRegisterForm, setShowRegisterForm] = useState(false);
   const loginRef = useRef(null);
   const [token, setToken] = useState(null);
 
@@ -104,23 +103,21 @@ const Header = () => {
 
   const toggleLoginForm = () => {
     setShowLoginForm(!showLoginForm);
+    setShowRegisterForm(false);
     setShow(showLoginForm ? "top" : "blur");
   };
 
-  // const fetchGenres = async () => {
-  //   try {
-  //     const response = await axios.get(
-  //       "http://localhost:9292/api/anime/get-anime-genres"
-  //     );
-  //     setGenresData(response.data);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
+  const toggleRegisterForm = () => {
+    setShowRegisterForm(!showRegisterForm);
+    setShowLoginForm(false);
+    setShow(showRegisterForm ? "top" : "blur");
+  };
 
-  // useEffect(() => {
-  //   fetchGenres();
-  // }, []);
+
+  const handleRegisterSuccess = () => {
+    setShowRegisterForm(false);
+    setShowLoginForm(true);
+  };
 
   useEffect(() => {
     setToken(sessionStorage.getItem("token"));
@@ -128,7 +125,12 @@ const Header = () => {
 
   const handleLogout = () => {
     sessionStorage.removeItem("token");
-    setToken(null); // Update token state to trigger rerender
+    window.dispatchEvent(new Event('storage'));
+    setToken(null);
+
+    if(location.pathname === "/watchlist") {
+      navigate("/");
+    }
   };
 
   const getRandomAnime = async () => {
@@ -156,6 +158,12 @@ const Header = () => {
           <li className="menuItem" onClick={() => getRandomAnime()}>
             RANDOM
           </li>
+          {token && (
+            <li className="menuItem" onClick={() => navigate("/watchlist")}>
+              MY WATCH LIST
+            </li>
+          )}
+
           {!token ? (<li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>)
             : (<li className="menuItem logout" onClick={handleLogout}>LOGOUT</li>)}
           {/* <li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>
@@ -197,8 +205,24 @@ const Header = () => {
       )}
 
       <div className={`loginFormWrapper ${showLoginForm ? "show" : ""}`}>
-        {showLoginForm && <LoginForm setToken={setToken} ref={loginRef}
-          onClose={() => setShowLoginForm(false)} />}
+        {showLoginForm && (
+          <LoginForm
+            setToken={setToken}
+            ref={loginRef}
+            onClose={() => setShowLoginForm(false)}
+            onRegister={toggleRegisterForm}
+          />
+        )}
+      </div>
+
+      <div className={`registerFormWrapper ${showRegisterForm ? "show" : ""}`}>
+        {showRegisterForm && (
+          <RegisterForm
+            ref={loginRef}
+            onClose={() => setShowRegisterForm(false)}
+            onRegisterSuccess={handleRegisterSuccess}
+          />
+        )}
       </div>
 
     </header>

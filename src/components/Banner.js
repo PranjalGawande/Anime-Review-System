@@ -39,7 +39,7 @@ const Banner = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // const response = await axios.get('http://localhost:9292/api/anime/background-images');
+                
                 const data = backgroundImages;
                 const randomIndex = Math.floor(Math.random() * data.length);
                 setBackground(data[randomIndex]);
@@ -62,7 +62,7 @@ const Banner = () => {
                 </div>}
 
             <div className="opacity-layer"></div>
-
+{}
             <ContentWrapper>
                 <div className='banner-content'>
                     <span className='title'>ANIMIX</span>

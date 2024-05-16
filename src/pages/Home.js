@@ -11,7 +11,6 @@ const Home = () => {
         <SeasonPopular />
         <UpcomingNextSeason />
         <TopAnime />
-        {/* <div style={{ height: '100vh' }}></div> */}
     </div>
   )
 }

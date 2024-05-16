@@ -8,6 +8,7 @@ import AnimeDetails from './pages/AnimeDetails';
 import SearchResult from './pages/SearchResult';
 import Explore from './pages/Explore';
 import ViewMore from './pages/ViewMore';
+import WatchList from './pages/WatchList';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path='/search/:query' element={<SearchResult />} />
           <Route path='/:explore' element={<Explore />} />
           <Route path='/viewmore/:type' element={<ViewMore />} />
+          <Route path='/watchlist' element={<WatchList />} />
           {/* {/* <Route path="/about" element={<About />} /> */}
           {/* <Route path="/product" element={<Product />} /> */}
         </Routes>

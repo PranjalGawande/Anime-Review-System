@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 // import { useSelector } from "react-redux";
 // import dayjs from "dayjs";
 import axios from "axios";
 
-// import "./style.scss";
 
 import ContentWrapper from "./ContentWrapper";
 // import useFetch from "../../../hooks/useFetch";
@@ -16,6 +15,8 @@ import NoImagePlaceholder from "./assets/No-Image-Placeholder.png";
 import LazyloadImg from "./LazyloadImg";
 import CircleRating from "./CircleRating";
 import VideoPopup from "./VideoPopup";
+import toast from "react-hot-toast";
+
 
 const AnimeDetailsBanner = ({ data, stats, loading }) => {
     // const [loading, setLoading] = useState(false);
@@ -27,7 +28,8 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
     // const [charactersData, setCharactersData] = useState([]);
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
-
+    const navigate = useNavigate();
+    const [token, setToken] = useState(null);
 
     // const genres = data?.genres?.map((genre) => genre.name);
     const genres = data?.genres ? data.genres.map((genre) => genre.name) : [];
@@ -35,60 +37,6 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
     console.log("genres", genres);
     // const themes = data?.themes?.map((theme) => theme.name);
     console.log("themes", themes);
-
-    // useEffect(() => {
-    //     const fetchAnimeDetails = async () => {
-    //         setLoading(true);
-    //         console.log("useEffect")
-    //         try {
-    //             const response = await axios.get(`http://localhost:9292/api/anime/details/${id}`);
-    //             const data = response?.data?.data;
-    //             console.log("Anime details",data);
-    //             setData(data);
-    //         } catch (error) {
-    //             console.error(error);
-    //             fetchAnimeDetails();
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     }
-    //     fetchAnimeDetails();
-    // }, [id]);
-
-    // useEffect(() => {
-    //     const fetchStats = async () => {
-    //         setLoading(true);
-    //         try {
-    //             const response = await axios.get(`http://localhost:9292/api/anime/anime-stats/${id}`);
-    //             const statsdata = response.data.data;
-    //             console.log(statsdata);
-    //             setStatsData(statsdata);
-    //         } catch (error) {
-    //             console.error(error);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     }
-    //     fetchStats();
-    // }, [id]);
-
-
-    // useEffect(() => {
-    //     const fetchCharacters = async () => {
-    //         setLoading(true);
-    //         try {
-    //             const response = await axios.get(`http://localhost:9292/api/anime/characters-list/${id}`);
-    //             const charactersData = response.data.data;
-    //             console.log(charactersData);
-    //             setCharactersData(charactersData);
-    //         } catch (error) {
-    //             console.error(error);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     }
-    //     fetchCharacters();
-    // }, [id]);
 
     // const producers = data?.producers?.map((producer) => producer?.name);
     const producers = (data?.producers || []).map((producer) => producer?.name);
@@ -98,6 +46,46 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
     //     const minutes = totalMinutes % 60;
     //     return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     // };
+
+    useEffect(() => {
+        const handleStorageChange = () => {
+            setToken(sessionStorage.getItem('token'));
+        };
+        console.log("Token:", token);
+        handleStorageChange();
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, []);
+
+    const handleAddToWatchlist = async () => {
+        try {
+            const header = {
+                Authorization: `Bearer ${token}`,
+            };
+
+            const response = await axios.post(`http://localhost:9292/addWatchList`, {
+                animeId: id,
+                imageUrl: data?.images?.jpg?.large_image_url,
+                title: data?.title_english ? data?.title_english : data?.title,
+            }, { headers: header }
+            );
+            console.log("response", response.data);
+            toast.success(response.data);
+        }
+        catch (error) {
+            console.error(error);
+        }
+
+        // navigate("/watchlist");
+        console.log("Add to watchlist");
+    };
+
+    const handleShowLoginToast = () => {
+        toast.error('Login to Add Anime to Watchlist');
+    };
 
     return (
         <div className="detailsBanner">
@@ -139,7 +127,7 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                                     Type:{" "}
                                                 </span>
                                                 <span className="text">
-                                                    {data?.type}
+                                                    {data?.type || "?"}
                                                 </span>
                                             </div>
                                             <div className="infoItem">
@@ -147,7 +135,7 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                                     Episodes:{" "}
                                                 </span>
                                                 <span className="text">
-                                                    {data?.episodes}
+                                                    {data?.episodes || "?"}
                                                 </span>
                                             </div>
                                             <div className="infoItem">
@@ -155,7 +143,7 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                                     Episode Duration:{" "}
                                                 </span>
                                                 <span className="text">
-                                                    {data?.duration}
+                                                    {data?.duration || "?"}
                                                 </span>
                                             </div>
                                             <div className="infoItem">
@@ -163,47 +151,52 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                                     Status:{" "}
                                                 </span>
                                                 <span className="text">
-                                                    {data?.status}
+                                                    {data?.status || "?"}
                                                 </span>
                                             </div>
-                                            <div className="infoItem">
-                                                <span className="text bold">
-                                                    Aired:{" "}
-                                                </span>
-                                                <span className="text">
-                                                    {data?.aired?.string}
-                                                </span>
-                                            </div>
-                                            <div className="infoItem">
-                                                <span className="text bold">
-                                                    Season:{" "}
-                                                </span>
-                                                <span className="text">
-                                                    {data?.season ? data?.season?.charAt(0).toUpperCase() + data.season.slice(1) : ''}
-                                                </span>
-                                            </div>
-                                            <div className="infoItem">
-                                                <span className="text bold">
-                                                    Score:{" "}
-                                                </span>
-                                                <span className="text">
-                                                    {data?.score}
-                                                </span>
-                                            </div>
-                                            <div className="infoItem">
-                                                <span className="text bold">
-                                                    Scored By:{" "}
-                                                </span>
-                                                <span className="text">
-                                                    {data?.scored_by}
-                                                </span>
-                                            </div>
+                                            {data.status !== "Not yet aired" && (
+                                                <div>
+                                                    <div className="infoItem">
+                                                        <span className="text bold">
+                                                            Aired:{" "}
+                                                        </span>
+                                                        <span className="text">
+                                                            {data?.aired?.string || "?"}
+                                                        </span>
+                                                    </div>
+                                                    <div className="infoItem">
+                                                        <span className="text bold">
+                                                            Season:{" "}
+                                                        </span>
+                                                        <span className="text">
+                                                            {data?.season ? data?.season?.charAt(0).toUpperCase() + data.season.slice(1) : '' || "?"}
+                                                        </span>
+                                                    </div>
+                                                    <div className="infoItem">
+                                                        <span className="text bold">
+                                                            Score:{" "}
+                                                        </span>
+                                                        <span className="text">
+                                                            {data?.score || "?"}
+                                                        </span>
+                                                    </div>
+                                                    <div className="infoItem">
+                                                        <span className="text bold">
+                                                            Scored By:{" "}
+                                                        </span>
+                                                        <span className="text">
+                                                            {data?.scored_by || "?"}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            )}
+
                                             <div className="infoItem">
                                                 <span className="text bold">
                                                     Source:{" "}
                                                 </span>
                                                 <span className="text">
-                                                    {data?.source}
+                                                    {data?.source || "?"}
                                                 </span>
                                             </div>
 
@@ -215,7 +208,7 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                                     Studio:{" "}
                                                 </span>
                                                 <span className="text">
-                                                    {data?.studios?.map((studio) => studio.name).join(", ")}
+                                                    {data?.studios?.map((studio) => studio.name).join(", ") || "?"}
                                                 </span>
                                             </div>}
 
@@ -306,6 +299,50 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                                                 </div>)
                                             }
 
+                                            {token ? (
+                                                <div
+                                                    className="playbtn fw-semibold"
+                                                    onClick={handleAddToWatchlist}
+                                                >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+                                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                                                        <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4" />
+                                                    </svg>
+                                                    <span className="textWatchList">
+                                                        Add to My Watchlist
+                                                    </span>
+
+                                                </div>
+                                            ) : (
+                                                <div
+                                                    className="playbtn fw-semibold disabled"
+                                                    onClick={handleShowLoginToast}
+                                                >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+                                                        <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                                                        <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4" />
+                                                    </svg>
+                                                    <span className="textWatchList">
+                                                        Add to My Watchlist
+                                                    </span>
+
+                                                </div>
+                                            )
+
+                                            }
+                                            {/* <div
+                                                className="playbtn fw-semibold"
+                                                onClick={handleAddToWatchlist}
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-bookmark-plus" viewBox="0 0 16 16">
+                                                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5V6H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V7H6a.5.5 0 0 1 0-1h1.5V4.5A.5.5 0 0 1 8 4" />
+                                                </svg>
+                                                <span className="textWatchList">
+                                                    Add to My Watchlist
+                                                </span>
+
+                                            </div> */}
                                         </div>
                                         <div className="overview">
                                             <div className="heading">

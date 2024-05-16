@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-const LoginForm = ({ onClose, setToken }) => {
+const LoginForm = ({ onClose, setToken, onRegister }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -16,6 +16,7 @@ const LoginForm = ({ onClose, setToken }) => {
             });
             const token = response.data.token;
             sessionStorage.setItem('token', token); // Store the token in session storage
+            window.dispatchEvent(new Event('storage')); 
             setToken(token); // Update the token state
             onClose();
             toast.success('Login successful', {
@@ -53,7 +54,7 @@ const LoginForm = ({ onClose, setToken }) => {
                     {/* <span className="forgot-password"><a href="#">Forgot Password ?</a></span> */}
                     <input className="login-button" type="submit" value="Log In" />
                     <span>OR</span>
-                    <input className="register-button" type="submit" value="Register" />
+                    <input className="register-button" type="submit" value="Register" onClick={onRegister}/>
                 </form>
                 {/* <div className="social-account-container">
                     <span className="title">Or Sign in with</span>
