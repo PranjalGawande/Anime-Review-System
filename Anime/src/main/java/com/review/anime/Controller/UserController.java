@@ -99,11 +99,11 @@ public class UserController {
 
     @GetMapping("/getWatchList")
     @PreAuthorize("hasAuthority('user:get')")
-    public ResponseEntity<Object> getWatchList(@RequestParam Integer userId, @AuthenticationPrincipal UserDetails userDetails) {
+    public ResponseEntity<Object> getWatchList(@AuthenticationPrincipal UserDetails userDetails) {
         String email = userDetails.getUsername();
         User user = userService.findUserByEmail(email);
 
-        if (!Objects.equals(user.getUserId(), userId)) {
+        if (!Objects.equals(user.getUserId(), user.getUserId())) {
             return ResponseEntity.badRequest().build();
         }
 
