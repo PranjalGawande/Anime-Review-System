@@ -30,9 +30,9 @@ public class AnimeApplication {
 			if(!userService.getAdminList().isEmpty()) return;
 
 			User user = new User();
-			user.setEmail("hari@gmail.com");
-			user.setPassword("Hari");
-			user.setName("Hari");
+			user.setEmail("admin@gmail.com");
+			user.setPassword("Admin");
+			user.setName("Admin");
 			user.setRole(Role.ADMIN);
 			user.setStatus(true);
 

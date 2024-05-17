@@ -23,8 +23,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private WatchListService watchListService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
