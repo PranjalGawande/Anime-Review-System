@@ -35,8 +35,10 @@ public class AnimeService {
             for (int i = 0; i < count; i++) {
                 int randomIndex = random.nextInt(totalAnimeCount);
                 JsonNode anime = animeNode.get(randomIndex);
-                JsonNode imagesNode = anime.path("images");
-                String imageUrl = imagesNode.path("jpg").path("large_image_url").asText();
+//                JsonNode imagesNode = anime.path("images");
+//                String imageUrl = imagesNode.path("jpg").path("large_image_url").asText();
+                JsonNode imageNode = anime.path("trailer").path("images");
+                String imageUrl = imageNode.path("maximum_image_url").asText();
                 imageUrls.add(imageUrl);
             }
         } catch (Exception e) {
