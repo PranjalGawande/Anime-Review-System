@@ -7,6 +7,8 @@ import axios from "axios";
 import ContentWrapper from "./ContentWrapper";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+import { Dropdown } from "react-bootstrap";
+import ChangePassword from "./ChangePassword";
 
 const Header = () => {
   const [show, setShow] = useState("top");
@@ -18,9 +20,9 @@ const Header = () => {
   const location = useLocation();
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [showRegisterForm, setShowRegisterForm] = useState(false);
+  const [showChangePasswordForm, setShowChangePasswordForm] = useState(false);
   const loginRef = useRef(null);
   const [token, setToken] = useState(null);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,8 +33,7 @@ const Header = () => {
         } else {
           setShow("top");
         }
-      }
-      else {
+      } else {
         setShow("top");
       }
       setLastScrollY(scroll);
@@ -44,7 +45,7 @@ const Header = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location])
+  }, [location]);
 
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
@@ -54,7 +55,6 @@ const Header = () => {
       }, 1000);
     }
   };
-
 
   const openSearch = () => {
     setMobileMenu(false);
@@ -90,16 +90,16 @@ const Header = () => {
 
   useEffect(() => {
     const body = document.body;
-    if (showLoginForm) {
+    if (showLoginForm || showRegisterForm) {
       body.style.overflow = "hidden"; // Prevent scrolling
     } else {
       body.style.overflow = "visible"; // Allow scrolling
     }
-  }, [showLoginForm]);
+  }, [showLoginForm, showRegisterForm]);
 
   const toggleMobileMenu = () => {
     setMobileMenu(!mobileMenu);
-  }
+  };
 
   const toggleLoginForm = () => {
     setShowLoginForm(!showLoginForm);
@@ -113,7 +113,6 @@ const Header = () => {
     setShow(showRegisterForm ? "top" : "blur");
   };
 
-
   const handleRegisterSuccess = () => {
     setShowRegisterForm(false);
     setShowLoginForm(true);
@@ -121,14 +120,14 @@ const Header = () => {
 
   useEffect(() => {
     setToken(sessionStorage.getItem("token"));
-  }, [token])
+  }, [token]);
 
   const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    window.dispatchEvent(new Event('storage'));
+    sessionStorage.clear();
+    window.dispatchEvent(new Event("storage"));
     setToken(null);
 
-    if(location.pathname === "/watchlist") {
+    if (location.pathname === "/watchlist") {
       navigate("/");
     }
   };
@@ -143,13 +142,23 @@ const Header = () => {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
+
+  const handleDropdownItemClick = (option) => {
+    console.log(option);
+  };
 
   return (
-    <header className={`header ${mobileMenu ? "mobileView" : ""} ${show} ${showLoginForm ? "blur" : ""}`}>
+    <header
+      className={`header ${mobileMenu ? "mobileView" : ""} ${show} ${
+        showLoginForm ? "blur" : ""
+      }`}
+    >
       <ContentWrapper>
         <div className="logo">
-          <span className="menuItem" onClick={() => navigate("/")}>ANIMIX</span>
+          <span className="menuItem" onClick={() => navigate("/")}>
+            ANIMIX
+          </span>
         </div>
         <ul className="menuItems">
           <li className="menuItem" onClick={() => navigate("/explore")}>
@@ -164,22 +173,61 @@ const Header = () => {
             </li>
           )}
 
-          {!token ? (<li className="menuItem" onClick={toggleLoginForm}>LOGIN</li>)
-            : (<li className="menuItem logout" onClick={handleLogout}>LOGOUT</li>)}
+          {token && (
+            <Dropdown>
+              <Dropdown.Toggle
+                className="menuItemDropdown"
+                variant=""
+                id="dropdown-basic"
+              ></Dropdown.Toggle>
+
+              <Dropdown.Menu className="dropdown-menu-dark">
+                <Dropdown.Item
+                >
+                  <li
+                    className="menuItemDropdown"
+                    onClick={() => setShowChangePasswordForm(true)}
+                    // onClick={() => navigate("/watchlist")}
+                  >
+                    CHANGE PASSWORD
+                  </li>
+                </Dropdown.Item>
+                <Dropdown.Item
+                >
+                  {!token ? (
+                    <li className="menuItemDropdown" onClick={toggleLoginForm}>
+                      LOGIN
+                    </li>
+                  ) : (
+                    <li
+                      className="menuItemDropdown logout"
+                      onClick={handleLogout}
+                    >
+                      LOGOUT
+                    </li>
+                  )}
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          )}
+
+          {!token && (
+            <li className="menuItem" onClick={toggleLoginForm}>
+              LOGIN
+            </li>
+          )}
+
           <li className="menuItem">
             <HiOutlineSearch onClick={openSearch} />
           </li>
         </ul>
 
-
         <div className="mobileMenuItems">
-          {mobileMenu ? (<VscChromeClose
-            onClick={toggleMobileMenu}
-          />)
-            :
-            (<SlMenu
-              onClick={toggleMobileMenu}
-            />)}
+          {mobileMenu ? (
+            <VscChromeClose onClick={toggleMobileMenu} />
+          ) : (
+            <SlMenu onClick={toggleMobileMenu} />
+          )}
         </div>
       </ContentWrapper>
 
@@ -193,9 +241,7 @@ const Header = () => {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyUp={searchQueryHandler}
               />
-              <VscChromeClose
-                onClick={() => setShowSearch(false)}
-              />
+              <VscChromeClose onClick={() => setShowSearch(false)} />
             </div>
           </ContentWrapper>
         </div>
@@ -222,6 +268,15 @@ const Header = () => {
         )}
       </div>
 
+      <div className={`registerFormWrapper ${showChangePasswordForm ? "show" : ""}`}>
+        {showChangePasswordForm && (
+          <ChangePassword
+            ref={loginRef}
+            onClose={() => setShowChangePasswordForm(false)}
+            // onRegisterSuccess={handleSuccess}
+          />
+        )}
+      </div>
     </header>
   );
 };

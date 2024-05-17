@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import LazyloadImg from "./LazyloadImg";
 import CircleRating from "./CircleRating";
 import NoImagePlaceholder from "./assets/No-Image-Placeholder.png";
+import toast from "react-hot-toast";
 
-const AnimeCard = ({ data, type }) => {
+const AnimeCard = ({ data, type, fetchWatchlistData }) => {
   const navigate = useNavigate();
   const [ImageUrl, setImageUrl] = useState("");
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
     if (type === "WatchList") {
@@ -16,18 +19,39 @@ const AnimeCard = ({ data, type }) => {
     }
   }, [data, type]);
 
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setToken(sessionStorage.getItem("token"));
+    };
+    handleStorageChange();
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
   const handleRemoveWatchlist = async (e) => {
     e.stopPropagation();
     try {
-      // const response = await axios.post('http://localhost:9292/removeWatchList', {
-      //     animeId: data.mal_id
-      // });
-      // console.log("remove watchlist response", response);
-      // fetchData();
-      // console.log(t"data", data.animeId);
-      
+      const header = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      const response = await axios.post(
+        "http://localhost:9292/deleteWatchList",
+        {
+          animeId: data.animeId,
+        },
+        {
+          headers: header,
+        }
+      );
+      fetchWatchlistData();
+      toast.success("Removed from watchlist");
     } catch (error) {
-      console.error(error);
+      toast.error("Failed to remove from watchlist");
+      // console.error(error);
     }
   };
   return (
@@ -49,7 +73,7 @@ const AnimeCard = ({ data, type }) => {
               width="24"
               height="24"
               fill="currentColor"
-              class="bi bi-x-circle"
+              className="bi bi-x-circle"
               viewBox="0 0 16 16"
             >
               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />

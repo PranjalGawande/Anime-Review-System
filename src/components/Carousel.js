@@ -9,7 +9,6 @@ const Carousel = ({ data, isUpcoming, title }) => {
   const [loading, setLoading] = useState(false);
   const carouselContainer = useRef(null);
   const navigate = useNavigate();
-  // console.log(data);
 
   const navigation = (direction) => {
     const container = carouselContainer.current;

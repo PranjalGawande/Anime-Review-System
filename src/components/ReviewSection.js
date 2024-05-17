@@ -8,6 +8,7 @@ import axios from "axios";
 const ReviewSection = ({ loading }) => {
   const [data, setData] = useState([]);
   const [token, setToken] = useState(null);
+  const [role, setRole] = useState(null);
   const [review, setReview] = useState("");
   const [score, setScore] = useState("");
   const { id } = useParams();
@@ -30,6 +31,7 @@ const ReviewSection = ({ loading }) => {
   useEffect(() => {
     const handleStorageChange = () => {
       setToken(sessionStorage.getItem("token"));
+      setRole(sessionStorage.getItem("role"));
     };
     // console.log("Token:", token);
     handleStorageChange();
@@ -87,6 +89,24 @@ const ReviewSection = ({ loading }) => {
   const handleShowLoginToast = () => {
     toast.error("Login to Add Review");
   };
+  
+  const handleRemoveReview = async (commentId) => {
+    try {
+      const header = {
+        Authorization: `Bearer ${token}`,
+      };
+
+      const response = await axios.get(`http://localhost:9292/deleteComment?commentId=${commentId}`,
+        { headers: header }
+      );
+      fetchData();
+      toast.success("Review removed successfully");
+    }
+    catch (error) {
+      // console.error("Error removing review:", error);
+      toast.error("Failed to remove review");
+    }
+  }
 
   return (
     <div className="review-section">
@@ -105,11 +125,20 @@ const ReviewSection = ({ loading }) => {
                   <span className="fw-bold d-flex align-items-center fs-5">
                     {review.name}
                   </span>
+                  <div className="d-flex justify-content-between align-items-center gap-3">
+                  {role === "admin" && (
+                    <div>
+                      <button className="btn btn-sm btn-outline-danger mb-2" onClick={() => handleRemoveReview(review.commentId)}>
+                        Remove Review
+                      </button>
+                    </div>
+                  )}
                   <div>
                     <p className="d-flex align-items-center pt-2">
                       <strong>Score: </strong>
                       <CircleRating rating={review.rating} />
                     </p>
+                  </div>
                   </div>
                 </div>
                 <p>{review.comment}</p>

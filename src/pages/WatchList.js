@@ -21,7 +21,6 @@ const WatchList = () => {
         headers: header,
       });
       setData(response.data.data);
-      // console.log("watchlist response", response);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -46,7 +45,9 @@ const WatchList = () => {
               <div className="content">
                 {data.map((item, index) => {
                   return (
-                    <AnimeCard key={index} data={item} type={"WatchList"} />
+                    <AnimeCard key={index} data={item} type={"WatchList"}
+                      fetchWatchlistData={fetchData}  
+                    />
                   );
                 })}
               </div>

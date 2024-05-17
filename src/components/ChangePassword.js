@@ -2,56 +2,40 @@ import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const RegisterForm = ({ onClose, onRegisterSuccess }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const validateEmail = (email) => {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(String(email).toLowerCase());
-  };
+const ChangePassword = ({ onClose }) => {
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [showOldPassword, setShowOldPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (password !== confirmPassword) {
-      toast.error("Passwords do not match", {
-        duration: 3000,
-      });
-      return;
-    }
-    if (!validateEmail(email)) {
-      toast.error("Invalid email format. Please enter a valid email.", {
-        duration: 3000,
-      });
-      return;
-    }
 
-    if (password.length < 8) {
+    if (newPassword.length < 8) {
       toast.error("Password must be at least 8 characters long.", {
         duration: 3000,
       });
       return;
     }
     try {
-      const response = await axios.post("http://localhost:9292/register", {
-        email,
-        password,
-        role: "USER",
-        status: true,
-        name,
-      });
+      const header = {
+        Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+      };
+
+      const response = await axios.post(
+        "http://localhost:9292/changePassword",
+        {
+          oldPassword,
+          newPassword,
+        },
+        { headers: header }
+      );
       onClose();
-      onRegisterSuccess();
-      toast.success("Registration successful", {
+      toast.success("Password Changed Successfully", {
         duration: 3000,
       });
     } catch (error) {
-      console.error("Registration failed:", error.response.data);
-      toast.error("Registration failed. Please try again.", {
+      toast.error("Old Password doesnot match", {
         duration: 3000,
       });
     }
@@ -61,7 +45,7 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
     <div className="LoginForm">
       <div className="container">
         <div className="d-flex justify-content-between align-items-center">
-          <div className="heading">Register</div>
+          <div className="headingChangePassword">Change Password</div>
           <button
             style={{
               border: "none",
@@ -84,43 +68,19 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
         </div>
 
         <form onSubmit={handleSubmit} className="form">
-          <div className="input-container">
-            <input
-              required
-              className="input"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="input-container">
-            <input
-              required
-              className="input"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="E-mail"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
           <div className="input-container position-relative">
             <input
               required
               className="input"
-              type={showPassword ? "text" : "password"}
-              name="password"
-              id="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type={showOldPassword ? "text" : "password"}
+              name="oldPassword"
+              id="oldPassword"
+              placeholder="Old Password"
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
             />
             <div className="eye-icon-container">
-              {!showPassword ? (
+              {!showOldPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -128,7 +88,7 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
                   fill="currentColor"
                   class="bi bi-eye-fill"
                   viewBox="0 0 16 16"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowOldPassword(!showOldPassword)}
                   cursor={"pointer"}
                 >
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
@@ -142,7 +102,7 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
                   fill="currentColor"
                   class="bi bi-eye-slash-fill"
                   viewBox="0 0 16 16"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowOldPassword(!showOldPassword)}
                   cursor={"pointer"}
                 >
                   <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z" />
@@ -155,15 +115,15 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
             <input
               required
               className="input"
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              id="confirmPassword"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
+              type={showNewPassword ? "text" : "password"}
+              name="newPassword"
+              id="newPassword"
+              placeholder="New Password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
             />
             <div className="eye-icon-container">
-              {!showConfirmPassword ? (
+              {!showNewPassword ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   // className="position-absolute end-0 top-50 translate-middle-x"
@@ -172,7 +132,7 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
                   fill="currentColor"
                   class="bi bi-eye-fill"
                   viewBox="0 0 16 16"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  onClick={() => setShowNewPassword(!showNewPassword)}
                   cursor={"pointer"}
                 >
                   <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
@@ -187,7 +147,7 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
                   fill="currentColor"
                   class="bi bi-eye-slash-fill"
                   viewBox="0 0 16 16"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  onClick={() => setShowNewPassword(!showNewPassword)}
                   cursor={"pointer"}
                 >
                   <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z" />
@@ -196,11 +156,15 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
               )}
             </div>
           </div>
-          <input className="register-button" type="submit" value="Register" />
+          <input
+            className="register-button"
+            type="submit"
+            value="Change Password"
+          />
         </form>
       </div>
     </div>
   );
 };
 
-export default RegisterForm;
+export default ChangePassword;
