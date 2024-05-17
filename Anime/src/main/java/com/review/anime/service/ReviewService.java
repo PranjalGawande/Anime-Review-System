@@ -19,4 +19,8 @@ public class ReviewService {
     public List<Review> getReviewOfAnimeId(Integer animeId) {
         return reviewRepository.findAllByAnimeId(animeId);
     }
+
+    public void deleteComment(Integer commentId) {
+        reviewRepository.deleteById(commentId);
+    }
 }

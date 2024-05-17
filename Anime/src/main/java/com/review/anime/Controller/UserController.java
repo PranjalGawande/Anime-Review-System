@@ -173,6 +173,20 @@ public class UserController {
         }
 
         userService.updateUser(email, extraDTO.getNewPassword());
-        return ResponseEntity.ok().body("Password changed Successfully.");
+        return ResponseEntity.ok().body("Password changed successfully.");
+    }
+
+    @GetMapping("/deleteComment")
+    @PreAuthorize("hasAuthority('admin:post')")
+    public ResponseEntity<String> deleteComment(@RequestParam Integer commentId, @AuthenticationPrincipal UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        User user = userService.findUserByEmail(email);
+
+        if (!user.isUserAdmin()) {
+            return ResponseEntity.badRequest().body("Only Admin is allowed to delete comment.");
+        }
+
+        reviewService.deleteComment(commentId);
+        return ResponseEntity.ok().body("Comment deleted successfully.");
     }
 }

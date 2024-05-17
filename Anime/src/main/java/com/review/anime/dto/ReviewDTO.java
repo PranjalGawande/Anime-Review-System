@@ -15,11 +15,13 @@ public class ReviewDTO {
     private Float rating;
     private String comment;
     private String name;
+    private Integer commentId;
 
     public ReviewDTO(Review review) {
         this.animeId = review.getAnimeId();
         this.rating = review.getRating();
-        this. comment = review.getComment();
+        this. commentId = review.getCommentId();
         this.name = review.getUser().getName();
+        this.comment = review.getComment();
     }
 }
