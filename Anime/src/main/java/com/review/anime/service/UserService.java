@@ -93,4 +93,15 @@ public class UserService {
         }
     }
 
+    public String deleteWatchList(Integer animeId, User user) {
+        List<WatchList> watchLists = user.getWatchLists();
+        boolean removed = watchLists.removeIf(watchList -> watchList.getAnimeId().equals(animeId));
+
+        if (removed) {
+            userRepository.save(user);
+            return "Anime removed from watch list successfully.";
+        } else {
+            return "Anime not found in watch list.";
+        }
+    }
 }

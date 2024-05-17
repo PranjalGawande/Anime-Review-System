@@ -139,10 +139,23 @@ public class UserController {
     public ResponseEntity<String> addWatchList(@RequestBody WatchList watchList, @AuthenticationPrincipal UserDetails userDetails) {
         String email = userDetails.getUsername();
         if ( email == null ) {
-            return ResponseEntity.badRequest().body("User is not Logged In.");
+            return ResponseEntity.badRequest().body("User not found.");
         }
 
         String result = userService.addWatchedAnimeId(watchList, email);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @PostMapping("/deleteWatchList")
+    @PreAuthorize("hasAuthority('user:post')")
+    public ResponseEntity<String> deleteWatchList(@RequestBody ExtraDTO extraDTO, @AuthenticationPrincipal UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        if(email == null) {
+            return ResponseEntity.badRequest().body("User not found.");
+        }
+
+        User user = userService.findUserByEmail(email);
+        String result = userService.deleteWatchList(extraDTO.getAnimeId(), user);
         return ResponseEntity.ok().body(result);
     }
 }
