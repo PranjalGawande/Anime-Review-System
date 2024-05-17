@@ -158,4 +158,21 @@ public class UserController {
         String result = userService.deleteWatchList(extraDTO.getAnimeId(), user);
         return ResponseEntity.ok().body(result);
     }
+
+    @PostMapping("/changePassword")
+    @PreAuthorize("hasAuthority('user:post')")
+    public ResponseEntity<String> changePassword(@RequestBody ExtraDTO extraDTO, @AuthenticationPrincipal UserDetails userDetails) {
+        String email = userDetails.getUsername();
+        if(email == null) {
+            return ResponseEntity.badRequest().body("User not found.");
+        }
+
+        User user = userService.findUserByEmail(email);
+        if(!userService.verifyCurrentPassword(email, extraDTO.getOldPassword())) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Current password is incorrect");
+        }
+
+        userService.updateUser(email, extraDTO.getNewPassword());
+        return ResponseEntity.ok().body("Password changed Successfully.");
+    }
 }

@@ -13,4 +13,7 @@ public class ExtraDTO {
     private Integer animeId;
     private Float rating;
     private String comment;
+
+    private String newPassword;
+    private String oldPassword;
 }

@@ -104,4 +104,20 @@ public class UserService {
             return "Anime not found in watch list.";
         }
     }
+
+    public boolean verifyCurrentPassword(String email, String oldPassword) {
+        User user = userRepository.findByEmail(email);
+
+        String storedPassword = user.getPassword();
+        return passwordEncoder.matches(oldPassword, storedPassword);
+    }
+
+    public void updateUser(String email, String newPassword) {
+        newPassword = passwordEncoder.encode(newPassword);
+
+        User user = findUserByEmail(email);
+        user.setPassword(newPassword);
+
+        userRepository.save(user);
+    }
 }
