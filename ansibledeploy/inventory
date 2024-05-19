@@ -1,0 +1,1 @@
+localhost ansible_user=pranjal ansible_ssh_pass=pranjal

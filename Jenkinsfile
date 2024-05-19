@@ -56,7 +56,7 @@ pipeline {
                     ansiblePlaybook(
                         playbook: 'ansibledeploy/deploy.yml',
                         inventory: 'ansibledeploy/inventory',
-                        sudoUser: 'pranjal-gawande'
+                        sudoUser: 'pranjal'
                     )
                 }
             }
