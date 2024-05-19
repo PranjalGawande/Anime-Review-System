@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Anime-Backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: animebackend
+  template:
+    metadata:
+      labels:
+        app: animebackend
+    spec:
+      containers:
+        - name: anime-backend-container
+          image: pranjalgawande/spe_backend
+          ports:
+            - containerPort: 9292
