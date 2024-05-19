@@ -29,7 +29,7 @@ const LoginForm = ({ onClose, setToken, onRegister }) => {
       });
       const token = response.data.token;
       sessionStorage.setItem("token", token);
-      if (email === "hari@gmail.com") {
+      if (email === "admin@gmail.com") {
         sessionStorage.setItem("role", "admin");
       }
       window.dispatchEvent(new Event("storage"));

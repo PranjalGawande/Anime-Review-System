@@ -69,6 +69,9 @@ const Characters = ({ data, loading }) => {
               let Image_url = item.character.images.jpg.image_url
                 ? item.character.images.jpg.image_url
                 : avatar;
+                if (Image_url && Image_url.includes("questionmark")) {
+                  Image_url = avatar;
+                }
               return (
                 <div key={item.id} className="listItem">
                   <div className="profileImg">
