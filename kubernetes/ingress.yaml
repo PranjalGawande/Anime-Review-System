@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: AnimeFrontend-ingress
+  name: anime-frontend-ingress
 spec:
   rules:
     - host: your.domain.com
@@ -11,6 +11,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: animefrontend-service
+                name: anime-frontend-service
                 port:
                   number: 80
