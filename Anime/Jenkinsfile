@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_REGISTRY_CREDENTIALS = 'DockerHubCred'
-        DOCKER_IMAGE_NAME = 'pranjalgawande/spe_backend'
+        DOCKER_IMAGE_NAME = 'hariprasad0023/spe_backend'
     }
 
     stages {
@@ -15,7 +15,7 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/PranjalGawande/Anime-Review-System.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/HariPrasad0023/Anime-Review-System.git/Anime']]
                 ])
             }
         }
