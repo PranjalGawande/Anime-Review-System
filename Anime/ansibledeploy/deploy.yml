@@ -1,7 +1,7 @@
 ---
 - name: Deploy Spring Boot Anime Backend Applicaion
   hosts: localhost
-  remote_user: pranjal
+  remote_user: hari
   tasks:
     - name: Deploy Docker image and Kubernetes resources
       become: false

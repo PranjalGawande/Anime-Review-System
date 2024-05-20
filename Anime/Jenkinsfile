@@ -15,7 +15,7 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/HariPrasad0023/Anime-Review-System.git/Anime']]
+                    userRemoteConfigs: [[url: 'https://github.com/HariPrasad0023/Anime-Review-System.git']]
                 ])
             }
         }
