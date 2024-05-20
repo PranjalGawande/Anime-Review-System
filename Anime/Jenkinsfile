@@ -22,30 +22,38 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                    sh 'mvn clean package'
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'mvn test'
+                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                    sh 'mvn test'
+                }
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("${DOCKER_IMAGE_NAME}", '.')
+                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                    script {
+                        docker.build("${DOCKER_IMAGE_NAME}", '.')
+                    }
                 }
             }
         }
 
         stage('Push Docker Image') {
             steps {
-                script {
-                    docker.withRegistry('', 'DockerHubCred') {
-                        sh "docker tag ${DOCKER_IMAGE_NAME}:latest ${DOCKER_IMAGE_NAME}:latest"
-                        sh "docker push ${DOCKER_IMAGE_NAME}:latest"
+            dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                    script {
+                        docker.withRegistry('', 'DockerHubCred') {
+                            sh "docker tag ${DOCKER_IMAGE_NAME}:latest ${DOCKER_IMAGE_NAME}:latest"
+                            sh "docker push ${DOCKER_IMAGE_NAME}:latest"
+                        }
                     }
                 }
             }
@@ -53,11 +61,13 @@ pipeline {
 
         stage('Deploy with Ansible') {
             steps {
-                script {
-                    ansiblePlaybook(
-                        playbook: 'ansibledeploy/deploy.yml',
-                        inventory: 'ansibledeploy/inventory'
-                    )
+                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                    script {
+                        ansiblePlaybook(
+                            playbook: 'ansibledeploy/deploy.yml',
+                            inventory: 'ansibledeploy/inventory'
+                        )
+                    }
                 }
             }
         }
