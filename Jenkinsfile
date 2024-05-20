@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_REGISTRY_CREDENTIALS = 'DockerHubCred'
         DOCKER_IMAGE_NAME = 'pranjalgawande/spe_frontend'
+        CI = 'false'
     }
 
     stages {
