@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: Anime-Backend-service
+  name: anime-backend-service
 spec:
   selector:
     app: animebackend
