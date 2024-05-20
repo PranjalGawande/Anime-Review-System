@@ -23,7 +23,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
-                    sh 'mvn clean package'
+                    sh 'sudo mvn clean package'
                 }
             }
         }
