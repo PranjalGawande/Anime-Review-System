@@ -22,7 +22,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('/var/lib/jenkins/workspace/Anime/Backend/Anime') {
+                dir('/home/hari/Desktop/SPE/Anime') {
                     sh 'mvn clean package'
                 }
             }
@@ -30,7 +30,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                dir('/home/hari/Desktop/SPE/Anime') {
                     sh 'mvn test'
                 }
             }
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                dir('/home/hari/Desktop/SPE/Anime') {
                     script {
                         docker.build("${DOCKER_IMAGE_NAME}", '.')
                     }
@@ -48,7 +48,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-            dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+            dir('/home/hari/Desktop/SPE/Anime') {
                     script {
                         docker.withRegistry('', 'DockerHubCred') {
                             sh "docker tag ${DOCKER_IMAGE_NAME}:latest ${DOCKER_IMAGE_NAME}:latest"
@@ -61,7 +61,7 @@ pipeline {
 
         stage('Deploy with Ansible') {
             steps {
-                dir('/var/lib/jenkins/workspace/Anime Backend/Anime') {
+                dir('/home/hari/Desktop/SPE/Anime') {
                     script {
                         ansiblePlaybook(
                             playbook: 'ansibledeploy/deploy.yml',
