@@ -20,6 +20,16 @@ pipeline {
             }
         }
 
+        stage('Verify Workspace') {
+                    steps {
+                        script {
+                            echo "Workspace: ${env.WORKSPACE}"
+                        }
+                        sh 'pwd'
+                        sh 'ls -la'
+                    }
+                }
+
         stage('Build') {
             steps {
                 dir('/home/hari/Desktop/SPE/Anime') {
