@@ -20,6 +20,29 @@ pipeline {
             }
         }
 
+        stages {
+            stage('Test MySQL Connectivity') {
+                steps {
+                    script {
+                        def mysqlHost = 'localhost' // Update this with your MySQL host
+                        def mysqlPort = '3306' // Update this with your MySQL port
+                        def mysqlUser = 'hari' // Update this with your MySQL username
+                        def mysqlPassword = 'your_password' // Update this with your MySQL password
+
+                        def mysqlCommand = "mysql -h ${mysqlHost} -P ${mysqlPort} -u ${mysqlUser} -p${mysqlPassword} -e 'SELECT 1'"
+
+                        def mysqlOutput = sh(script: mysqlCommand, returnStdout: true).trim()
+
+                        if (mysqlOutput.contains('1')) {
+                            echo "MySQL connectivity test successful!"
+                        } else {
+                            error "Failed to connect to MySQL server"
+                        }
+                    }
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
