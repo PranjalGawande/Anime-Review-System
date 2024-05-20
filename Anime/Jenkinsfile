@@ -20,24 +20,15 @@ pipeline {
             }
         }
 
-        stages {
+    stages {
             stage('Test MySQL Connectivity') {
                 steps {
                     script {
-                        def mysqlHost = 'localhost' // Update this with your MySQL host
-                        def mysqlPort = '3306' // Update this with your MySQL port
-                        def mysqlUser = 'hari' // Update this with your MySQL username
-                        def mysqlPassword = 'your_password' // Update this with your MySQL password
+                        // Add the necessary MySQL dependency to your Maven project
+                        sh 'mvn dependency:get -Dartifact=mysql:mysql-connector-java:8.0.26'
 
-                        def mysqlCommand = "mysql -h ${mysqlHost} -P ${mysqlPort} -u ${mysqlUser} -p${mysqlPassword} -e 'SELECT 1'"
-
-                        def mysqlOutput = sh(script: mysqlCommand, returnStdout: true).trim()
-
-                        if (mysqlOutput.contains('1')) {
-                            echo "MySQL connectivity test successful!"
-                        } else {
-                            error "Failed to connect to MySQL server"
-                        }
+                        // Test MySQL connectivity using a Maven exec plugin
+                        sh 'mvn exec:java -Dexec.mainClass="com.example.MySQLConnectionTest"'
                     }
                 }
             }
