@@ -4,6 +4,11 @@ pipeline {
     environment {
         DOCKER_REGISTRY_CREDENTIALS = 'DockerHubCred'
         DOCKER_IMAGE_NAME = 'hariprasad0023/spe_backend'
+
+        MYSQL_ROOT_PASSWORD = 'NewPassword'
+        MYSQL_DATABASE = 'anime_db'
+        MYSQL_USER = 'hari'
+        MYSQL_PASSWORD = 'Pin.Pen$20'
     }
 
     stages {
@@ -19,6 +24,18 @@ pipeline {
                 ])
             }
         }
+
+        stage('Start MySQL Container') {
+                    steps {
+                        script {
+                            docker.image('mysql:8.0').withRun("-e MYSQL_ROOT_PASSWORD=${env.MYSQL_ROOT_PASSWORD} -e MYSQL_DATABASE=${env.MYSQL_DATABASE} -e MYSQL_USER=${env.MYSQL_USER} -e MYSQL_PASSWORD=${env.MYSQL_PASSWORD} -p 3306:3306 --name mysql-container") { c ->
+                                env.DB_CONTAINER_ID = c.id
+                                // Wait for MySQL to be ready
+                                sh 'echo "Waiting for MySQL to start..."; sleep 30'
+                            }
+                        }
+                    }
+                }
 
         stage('Build') {
             steps {
@@ -68,6 +85,15 @@ pipeline {
                             inventory: 'ansibledeploy/inventory'
                         )
                     }
+                }
+            }
+        }
+
+        stage('Cleanup MySQL Container') {
+            steps {
+                script {
+                    sh "docker stop ${env.DB_CONTAINER_ID}"
+                    sh "docker rm ${env.DB_CONTAINER_ID}"
                 }
             }
         }
