@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Anime-Backend-deployment
+  name: anime-backend-deployment
 spec:
   replicas: 2
   selector:

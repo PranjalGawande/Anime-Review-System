@@ -80,8 +80,8 @@
 #    app: mysql
 #    tier: database
 #  clusterIP: None  # We Use DNS, Thus ClusterIP is not relevant
-
-
+#
+#
 apiVersion: v1
 kind: Service
 metadata:
@@ -95,6 +95,32 @@ spec:
   selector:
     app: mysql
 ---
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: mysql
+#  labels:
+#    app: mysql
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: mysql
+#  template:
+#    metadata:
+#      labels:
+#        app: mysql
+#    spec:
+#      containers:
+#        - name: mysql
+#          image: mysql:latest
+#          env:
+#            - name: MYSQL_ROOT_PASSWORD
+#              value: "root"
+#          ports:
+#            - containerPort: 3306
+#              name: mysql
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -117,6 +143,21 @@ spec:
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "root"
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_DATABASE
           ports:
             - containerPort: 3306
               name: mysql
