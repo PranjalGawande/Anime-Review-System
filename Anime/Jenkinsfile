@@ -20,19 +20,9 @@ pipeline {
             }
         }
 
-        stage('Verify Workspace') {
-                    steps {
-                        script {
-                            echo "Workspace: ${env.WORKSPACE}"
-                        }
-                        sh 'pwd'
-                        sh 'ls -la'
-                    }
-                }
-
         stage('Build') {
             steps {
-                dir('/home/hari/Desktop/SPE/Anime') {
+                dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
                     sh 'mvn clean package'
                 }
             }
@@ -40,7 +30,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                dir('/home/hari/Desktop/SPE/Anime') {
+                dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
                     sh 'mvn test'
                 }
             }
@@ -48,7 +38,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('/home/hari/Desktop/SPE/Anime') {
+                dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
                     script {
                         docker.build("${DOCKER_IMAGE_NAME}", '.')
                     }
@@ -58,7 +48,7 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-            dir('/home/hari/Desktop/SPE/Anime') {
+            dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
                     script {
                         docker.withRegistry('', 'DockerHubCred') {
                             sh "docker tag ${DOCKER_IMAGE_NAME}:latest ${DOCKER_IMAGE_NAME}:latest"
@@ -71,7 +61,7 @@ pipeline {
 
         stage('Deploy with Ansible') {
             steps {
-                dir('/home/hari/Desktop/SPE/Anime') {
+                dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
                     script {
                         ansiblePlaybook(
                             playbook: 'ansibledeploy/deploy.yml',
