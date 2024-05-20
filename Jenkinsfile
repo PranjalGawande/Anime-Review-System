@@ -4,7 +4,6 @@ pipeline {
     environment {
         DOCKER_REGISTRY_CREDENTIALS = 'DockerHubCred'
         DOCKER_IMAGE_NAME = 'pranjalgawande/spe_frontend'
-        CI = 'false'
     }
 
     stages {
@@ -25,7 +24,7 @@ pipeline {
             steps {
             
                     sh 'npm install'
-                    sh 'npm run build'
+                    sh 'CI=false npm run build'
                 
             }
         }
@@ -57,7 +56,7 @@ pipeline {
                     ansiblePlaybook(
                         playbook: 'ansibledeploy/deploy.yml',
                         inventory: 'ansibledeploy/inventory',
-                        sudoUser: 'pranjal'
+                        sudoUser: 'pranjal-gawande'
                     )
                 }
             }
