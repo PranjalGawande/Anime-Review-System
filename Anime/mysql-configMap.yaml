@@ -1,0 +1,7 @@
+apiVersion : v1
+kind : ConfigMap
+metadata:
+  name : db-config
+data:
+  host : "127.0.0.1"
+  dbName: "anime_db"

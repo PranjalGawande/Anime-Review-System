@@ -4,7 +4,7 @@ metadata:
   name: Anime-Backend-service
 spec:
   selector:
-    app: anime-backend
+    app: animebackend
   ports:
     - protocol: TCP
       port: 9292
