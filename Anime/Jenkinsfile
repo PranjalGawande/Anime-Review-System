@@ -20,19 +20,18 @@ pipeline {
             }
         }
 
-    stages {
-            stage('Test MySQL Connectivity') {
-                steps {
-                    script {
-                        // Add the necessary MySQL dependency to your Maven project
-                        sh 'mvn dependency:get -Dartifact=mysql:mysql-connector-java:8.0.26'
+        stage('Test MySQL Connectivity') {
+            steps {
+                script {
+                    // Add the necessary MySQL dependency to your Maven project
+                    sh 'mvn dependency:get -Dartifact=mysql:mysql-connector-java:8.0.26'
 
-                        // Test MySQL connectivity using a Maven exec plugin
-                        sh 'mvn exec:java -Dexec.mainClass="com.example.MySQLConnectionTest"'
-                    }
+                    // Test MySQL connectivity using a Maven exec plugin
+                    sh 'mvn exec:java -Dexec.mainClass="com.example.MySQLConnectionTest"'
                 }
             }
         }
+
 
         stage('Build') {
             steps {
