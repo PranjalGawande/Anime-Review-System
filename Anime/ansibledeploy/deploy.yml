@@ -1,10 +1,10 @@
+---
 - name: Deploy Spring Boot Anime Backend Applicaion
   hosts: localhost
   remote_user: hari
   tasks:
     - name: Deploy Docker image and Kubernetes resources
-      k8s:
-        state: present
-        definition: "{{ item }}"
+      become: false
+      shell: kubectl apply -f "{{ item }}"
       with_fileglob:
         - /var/lib/jenkins/workspace/AnimeReview/Anime/kubernetes/*.yaml
