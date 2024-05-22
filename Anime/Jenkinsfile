@@ -25,10 +25,12 @@ pipeline {
         }
 
         stage('Verify DB Connection') {
-                    steps {
-                        sh "mysql -h localhost -P 3306 -u ${DB_USERNAME} -p ${DB_PASSWORD} -e 'USE anime_db;'"
-                    }
+            steps {
+                script {
+                    sh "mysql -h localhost -P 3306 -u ${DB_USERNAME} -p${DB_PASSWORD} -e 'USE anime_db;'"
                 }
+            }
+        }
 
         stage('Build') {
             steps {
