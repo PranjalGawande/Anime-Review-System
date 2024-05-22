@@ -7,4 +7,4 @@
         state: present
         definition: "{{ item }}"
       with_fileglob:
-        - kubernetes/*.yaml
+        - /var/lib/jenkins/workspace/AnimeReview/Anime/kubernetes/*.yaml
