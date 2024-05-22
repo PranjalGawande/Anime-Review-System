@@ -6,8 +6,8 @@ pipeline {
         DOCKER_IMAGE_NAME = 'hariprasad0023/spe_backend'
 
                 DB_URL = 'jdbc:mysql://localhost:3306/anime_db'
-                DB_USERNAME = 'hari'
-                DB_PASSWORD = 'Pin.Pen$20'
+                DB_USERNAME = 'root'
+                DB_PASSWORD = 'NewPassword'
     }
 
     stages {
