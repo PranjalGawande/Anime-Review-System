@@ -40,3 +40,5 @@ spec:
               value: "NewPassword"
             - name: DB_HOST
               value: "mysql-service"
+            - name: DB_PORT
+              value: "3307"
