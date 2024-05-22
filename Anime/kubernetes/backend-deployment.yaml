@@ -8,8 +8,8 @@ spec:
     app: anime
   ports:
     - protocol: TCP
-      port: 3306  # Internal port for MySQL service
-      targetPort: 3306  # Target port of your MySQL database
+      port: 3307  # Internal port for MySQL service
+      targetPort: 3307  # Target port of your MySQL database
 
 ---
 apiVersion: apps/v1
