@@ -20,14 +20,6 @@ pipeline {
             }
         }
 
-        stage('Verify DB Connection') {
-            steps {
-                script {
-                    sh "mysql -h localhost -P 3306 -u root -pNewPassword -e 'USE anime_db;'"
-                }
-            }
-        }
-
         stage('Build') {
             steps {
                 dir('/var/lib/jenkins/workspace/AnimeReview/Anime') {
