@@ -17,7 +17,7 @@ kind: Deployment
 metadata:
   name: anime-app
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: anime
@@ -38,25 +38,3 @@ spec:
               value: "root"
             - name: DB_PASSWORD
               value: "NewPassword"
-#          livenessProbe:
-#            httpGet:
-#              path: /
-#              port: 9292
-#            initialDelaySeconds: 30
-#            periodSeconds: 10
-#          readinessProbe:
-#            httpGet:
-#              path: /
-#              port: 9292
-#            initialDelaySeconds: 30
-#            periodSeconds: 10
-#          initContainers:
-#            - name: init-mysql
-#              image: mysql:latest
-#              command: ['sh', '-c', 'until mysqladmin ping -h mysql-service -u root -pNewPassword; do echo "Waiting for MySQL service to be available"; sleep 5; done']
-#              env:
-#                - name: MYSQL_ROOT_PASSWORD
-#                  value: "NewPassword"
-#              volumeMounts:
-#                - name: mysql-persistent-storage
-#                  mountPath: /var/lib/mysql
