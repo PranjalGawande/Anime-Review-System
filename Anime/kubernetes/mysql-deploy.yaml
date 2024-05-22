@@ -8,8 +8,8 @@ spec:
     app: mysql
   ports:
     - protocol: TCP
-      port: 3307  # Port for A backend to send and receive database connections
-      targetPort: 3306  # Target port of your MySQL database
+      port: 3307
+      targetPort: 3306
 
 ---
 apiVersion: apps/v1

@@ -15,4 +15,4 @@ spec:
               service:
                 name: anime-backend-service
                 port:
-                  number: 9292
+                  number: 3307
