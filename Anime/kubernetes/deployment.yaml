@@ -29,9 +29,3 @@ spec:
         - name: init-mysql
           image: mysql:latest
           command: ['sh', '-c', 'mysql -h mysql-service -u root -pNewPassword -e "CREATE DATABASE IF NOT EXISTS anime_db;"']
-          volumeMounts:
-            - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-      volumes:
-        - name: mysql-persistent-storage
-          emptyDir: {}
