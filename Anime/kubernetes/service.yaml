@@ -1,12 +1,63 @@
+---
 apiVersion: v1
 kind: Service
 metadata:
-  name: anime-backend-service
+  name: mysql-service
 spec:
   selector:
-    app: animebackend
+    app: mysql
   ports:
     - protocol: TCP
-      port: 9292
+      port: 3306
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anime-service
+spec:
+  selector:
+    app: anime
+  ports:
+    - protocol: TCP
+      port: 80
       targetPort: 9292
   type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anime-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: anime
+  template:
+    metadata:
+      labels:
+        app: anime
+    spec:
+      containers:
+        - name: anime
+          image: hariprasad0023/spe_backend:latest
+          ports:
+            - containerPort: 9292
+          env:
+            - name: DB_URL
+              value: "jdbc:mysql://mysql-service:3306/anime_db"
+            - name: DB_USERNAME
+              value: "root"
+            - name: DB_PASSWORD
+              value: "NewPassword"
+      initContainers:
+        - name: init-mysql
+          image: mysql:latest
+          command: ['sh', '-c', 'mysql -h mysql-service -u root -pNewPassword -e "CREATE DATABASE IF NOT EXISTS anime_db;"']
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-persistent-storage
+          emptyDir: {}

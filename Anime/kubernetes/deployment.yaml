@@ -1,35 +1,54 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: anime-backend-deployment
+  name: mysql-db
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: animebackend
+      app: mysql
   template:
     metadata:
       labels:
-        app: animebackend
+        app: mysql
     spec:
       containers:
-        - name: anime-backend-container
-          image: pranjalgawande/spe_backend
+        - name: mysql
+          image: mysql:latest
+          command: ["sh", "-c", "mysql -h mysql-service -u root -pNewPassword -e 'CREATE DATABASE IF NOT EXISTS anime_db;'"]
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "NewPassword"
+            - name: MYSQL_DATABASE
+              value: "anime_db"
+          ports:
+            - containerPort: 3306
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anime-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: anime
+  template:
+    metadata:
+      labels:
+        app: anime
+    spec:
+      containers:
+        - name: anime
+          image: hariprasad0023/spe_backend:latest
           ports:
             - containerPort: 9292
           env:
-            - name: MYSQL_USER
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_USER
-            - name: MYSQL_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_PASSWORD
-            - name: MYSQL_DATABASE
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_DATABASE
+            - name: DB_URL
+              value: "jdbc:mysql://mysql-service:3306/anime_db"
+            - name: DB_USERNAME
+              value: "root"
+            - name: DB_PASSWORD
+              value: "NewPassword"
