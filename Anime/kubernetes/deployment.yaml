@@ -1,31 +1,4 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mysql-db
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: mysql
-  template:
-    metadata:
-      labels:
-        app: mysql
-    spec:
-      containers:
-        - name: mysql
-          image: mysql:latest
-          command: ["sh", "-c", "mysql -h mysql-service -u root -pNewPassword -e 'CREATE DATABASE IF NOT EXISTS anime_db;'"]
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: "NewPassword"
-            - name: MYSQL_DATABASE
-              value: "anime_db"
-          ports:
-            - containerPort: 3306
-
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -52,3 +25,13 @@ spec:
               value: "root"
             - name: DB_PASSWORD
               value: "NewPassword"
+      initContainers:
+        - name: init-mysql
+          image: mysql:latest
+          command: ['sh', '-c', 'mysql -h mysql-service -u root -pNewPassword -e "CREATE DATABASE IF NOT EXISTS anime_db;"']
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-persistent-storage
+          emptyDir: {}
