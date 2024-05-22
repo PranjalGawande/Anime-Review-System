@@ -4,6 +4,10 @@ pipeline {
     environment {
         DOCKER_REGISTRY_CREDENTIALS = 'DockerHubCred'
         DOCKER_IMAGE_NAME = 'hariprasad0023/spe_backend'
+
+                DB_URL = 'jdbc:mysql://localhost:3306/anime_db'
+                DB_USERNAME = 'hari'
+                DB_PASSWORD = 'Pin.Pen$20'
     }
 
     stages {
@@ -19,6 +23,12 @@ pipeline {
                 ])
             }
         }
+
+        stage('Verify DB Connection') {
+                    steps {
+                        sh "mysql -h localhost -P 3306 -u ${DB_USERNAME} -p ${DB_PASSWORD} -e 'USE anime_db;'"
+                    }
+                }
 
         stage('Build') {
             steps {
