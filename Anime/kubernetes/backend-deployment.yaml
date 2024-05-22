@@ -33,7 +33,7 @@ spec:
             - containerPort: 9292
           env:
             - name: DB_URL
-              value: "jdbc:mysql://mysql-service:3306/anime_db"
+              value: "jdbc:mysql://mysql-service:3307/anime_db"
             - name: DB_USERNAME
               value: "root"
             - name: DB_PASSWORD
