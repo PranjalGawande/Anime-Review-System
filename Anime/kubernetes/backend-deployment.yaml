@@ -30,7 +30,7 @@ spec:
         - name: anime
           image: hariprasad0023/spe_backend:latest
           ports:
-            - containerPort: 9292
+            - containerPort: 3307
           env:
             - name: DB_URL
               value: "jdbc:mysql://mysql-service:3307/anime_db"
