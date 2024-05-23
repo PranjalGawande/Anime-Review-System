@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin("http://localhost:9292")
 @RequestMapping(value = "/api/anime", produces = "application/json")
 public class AnimeController {
 
