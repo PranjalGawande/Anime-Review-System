@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: anime
+      app: animefrontend
   template:
     metadata:
       labels:
-        app: anime
+        app: animeforntend
     spec:
       containers:
         - name: anime-frontend-container
