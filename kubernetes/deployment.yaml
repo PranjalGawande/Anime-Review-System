@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: animeforntend
+        app: animefrontend
     spec:
       containers:
         - name: anime-frontend-container
