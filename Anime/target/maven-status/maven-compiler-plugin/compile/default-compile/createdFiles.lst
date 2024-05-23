@@ -8,8 +8,8 @@ com/review/anime/entites/Review.class
 com/review/anime/entites/Role.class
 com/review/anime/Controller/UserController.class
 com/review/anime/configuration/CrosConfig.class
-com/review/anime/repository/ReviewRepository.class
 com/review/anime/repository/WatchListRepository.class
+com/review/anime/repository/ReviewRepository.class
 com/review/anime/service/ReviewService.class
 com/review/anime/Controller/AnimeController.class
 com/review/anime/service/WatchListService.class
@@ -20,5 +20,5 @@ com/review/anime/entites/Permission.class
 com/review/anime/service/AnimeService.class
 com/review/anime/security/SecurityConfig.class
 com/review/anime/entites/WatchList.class
-com/review/anime/AnimeApplication.class
 com/review/anime/service/UserService.class
+com/review/anime/AnimeApplication.class
