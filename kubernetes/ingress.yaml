@@ -4,7 +4,7 @@ metadata:
   name: anime-frontend-ingress
 spec:
   rules:
-    - host: your.domain.com
+    - host: iiitb-animix.com
       http:
         paths:
           - path: /
