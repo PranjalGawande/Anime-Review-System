@@ -45,7 +45,7 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
       };
 
       const response = await axios.post(
-        `http://localhost:9292/addWatchList`,
+        `${API_URL}/addWatchList`,
         {
           animeId: id,
           imageUrl: data?.images?.jpg?.large_image_url,
@@ -117,7 +117,7 @@ const AnimeDetailsBanner = ({ data, stats, loading }) => {
                             <span className="text">
                               {data?.season
                                 ? data?.season?.charAt(0).toUpperCase() +
-                                  data.season.slice(1)
+                                data.season.slice(1)
                                 : "" || "?"}
                             </span>
                           </div>
