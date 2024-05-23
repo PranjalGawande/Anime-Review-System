@@ -33,3 +33,6 @@ spec:
             - containerPort: 9292
           env:
             - name: DB_HOST
+              value: "mysql-service"
+            - name: DB_PORT
+              value: "3307"
