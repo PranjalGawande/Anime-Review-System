@@ -6,13 +6,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: your.domain.com
+    - host: 192.168.58.2
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: anime-backend-service
+                name: anime-service
                 port:
-                  number: 3307
+                  number: 9292
