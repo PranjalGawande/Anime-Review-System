@@ -8,8 +8,8 @@ spec:
     app: anime
   ports:
     - protocol: TCP
-      port: 3307
-      targetPort: 3307
+      port: 9292
+      targetPort: 9292
 
 ---
 apiVersion: apps/v1
@@ -30,14 +30,14 @@ spec:
         - name: anime
           image: hariprasad0023/spe_backend:latest
           ports:
-            - containerPort: 3307
+            - containerPort: 9292
           env:
-            - name: DB_URL
-              value: "jdbc:mysql://mysql-service:3307/anime_db"
-            - name: DB_USERNAME
-              value: "root"
-            - name: DB_PASSWORD
-              value: "NewPassword"
+#            - name: DB_URL
+#              value: "jdbc:mysql://mysql-service:3307/anime_db"
+#            - name: DB_USERNAME
+#              value: "root"
+#            - name: DB_PASSWORD
+#              value: "NewPassword"
             - name: DB_HOST
               value: "mysql-service"
             - name: DB_PORT
