@@ -1,6 +1,5 @@
 package com.review.anime.security;
 
-import com.review.anime.configuration.CustomFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +33,6 @@ public class SecurityConfig {
                                 .anyRequest()
                                 .authenticated()
                         )
-                .addFilterBefore(new CustomFilter(), UsernamePasswordAuthenticationFilter.class)
                 .userDetailsService(loginDetailService)
                 .sessionManagement(
                         session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
