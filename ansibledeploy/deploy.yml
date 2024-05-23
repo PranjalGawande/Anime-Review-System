@@ -1,10 +1,10 @@
 ---
 - name: Deploy Docker image and Kubernetes resources for Anime Frontend
   hosts: localhost
-  remote_user: pranjal
-  become: false
+  remote_user: hari
   tasks:
-    - name: Run Kubernetes Deployment files
-      shell: kubectl apply -f "{{ item }}" 
+    - name: Deploy Docker image and Kubernetes resources
+      become: false
+      shell: kubectl apply -f "{{ item }}"
       with_fileglob:
         - ../kubernetes/*.yaml

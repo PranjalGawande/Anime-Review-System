@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_REGISTRY_CREDENTIALS = 'DockerHubCred'
-        DOCKER_IMAGE_NAME = 'pranjalgawande/spe_frontend'
+        DOCKER_IMAGE_NAME = 'hariprasad0023/spe_frontend'
     }
 
     stages {
@@ -15,7 +15,7 @@ pipeline {
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: 'https://github.com/PranjalGawande/Anime-Front-End.git']]
+                    userRemoteConfigs: [[url: 'https://github.com/HariPrasad0023/Anime-Front-End.git']]
                 ])
             }
         }
@@ -55,7 +55,6 @@ pipeline {
                     ansiblePlaybook(
                         playbook: 'ansibledeploy/deploy.yml',
                         inventory: 'ansibledeploy/inventory',
-                        sudoUser: 'pranjal-gawande'
                     )
                 }
             }
