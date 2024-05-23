@@ -6,6 +6,7 @@ import ContentWrapper from "../components/ContentWrapper";
 import AnimeCard from "../components/AnimeCard";
 import Spinner from "../components/Spinner";
 import noResults from "../components/assets/no-results.png";
+import API_URL from "../Config/config";
 
 const ViewMore = () => {
   const [data, setData] = useState({ pagination: {}, data: [] });
@@ -17,7 +18,7 @@ const ViewMore = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:9292/api/anime/${type}?page=${pageNum}`
+        `${API_URL}/api/anime/${type}?page=${pageNum}`
       );
 
       const newData = response.data;
@@ -37,7 +38,7 @@ const ViewMore = () => {
   const fetchNextPageData = async () => {
     try {
       const response = await axios
-        .get(`http://localhost:9292/api/anime/${type}?page=${pageNum}`)
+        .get(`${API_URL}/api/anime/${type}?page=${pageNum}`)
         .then((response) => {
           if (data?.data) {
             setData({

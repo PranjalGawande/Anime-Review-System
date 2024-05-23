@@ -4,6 +4,7 @@ import CircleRating from "./CircleRating";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../Config/config";
 
 const ReviewSection = ({ loading }) => {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ const ReviewSection = ({ loading }) => {
   const fetchData = async () => {
     try {
       const reviewsResponse = await axios.get(
-        `http://localhost:9292/getComment?animeId=${id}`
+        `${API_URL}/getComment?animeId=${id}`
       );
       setData(reviewsResponse.data);
     } catch (error) {
@@ -70,7 +71,7 @@ const ReviewSection = ({ loading }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:9292/addComment",
+        `${API_URL}/addComment`,
         reviewData,
         { headers: header }
       );
@@ -96,7 +97,7 @@ const ReviewSection = ({ loading }) => {
         Authorization: `Bearer ${token}`,
       };
 
-      const response = await axios.get(`http://localhost:9292/deleteComment?commentId=${commentId}`,
+      const response = await axios.get(`${API_URL}/deleteComment?commentId=${commentId}`,
         { headers: header }
       );
       fetchData();

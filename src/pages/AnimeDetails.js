@@ -6,6 +6,7 @@ import Characters from "../components/Characters";
 import Recommendation from "../components/Recommendation";
 import Staffs from "../components/Staffs";
 import ReviewSection from "../components/ReviewSection";
+import API_URL from "../Config/config";
 
 const AnimeDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,7 @@ const AnimeDetails = () => {
       try {
         // Fetch anime details
         const detailsResponse = await axios.get(
-          `http://localhost:9292/api/anime/details/${id}`
+          `${API_URL}/api/anime/details/${id}`
         );
         setDetails(detailsResponse.data.data);
 
@@ -30,7 +31,7 @@ const AnimeDetails = () => {
 
         // Fetch characters list
         const charactersResponse = await axios.get(
-          `http://localhost:9292/api/anime/characters-list/${id}`
+          `${API_URL}/api/anime/characters-list/${id}`
         );
         setCharacters(charactersResponse.data.data);
 
@@ -38,7 +39,7 @@ const AnimeDetails = () => {
 
         // Fetch staff list
         const staffResponse = await axios.get(
-          `http://localhost:9292/api/anime/staff-list/${id}`
+          `${API_URL}/api/anime/staff-list/${id}`
         );
         setStaff(staffResponse.data.data);
 
@@ -46,7 +47,7 @@ const AnimeDetails = () => {
 
         // Fetch recommendations
         const recommendationsResponse = await axios.get(
-          `http://localhost:9292/api/anime/recommendation/${id}`
+          `${API_URL}/api/anime/recommendation/${id}`
         );
         const first15Recommendations = recommendationsResponse.data.data.slice(
           0,
@@ -58,7 +59,7 @@ const AnimeDetails = () => {
 
         // Fetch stats
         const statsResponse = await axios.get(
-          `http://localhost:9292/api/anime/anime-stats/${id}`
+          `${API_URL}/api/anime/anime-stats/${id}`
         );
         setStats(statsResponse.data.data);
       } catch (error) {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API_URL from "../Config/config";
 
 const LoginForm = ({ onClose, setToken, onRegister }) => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const LoginForm = ({ onClose, setToken, onRegister }) => {
     }
 
     try {
-      const response = await axios.post("http://localhost:9292/login", {
+      const response = await axios.post(`${API_URL}/login`, {
         email,
         password,
       });

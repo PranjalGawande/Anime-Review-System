@@ -3,6 +3,7 @@ import ContentWrapper from "./ContentWrapper";
 import Carousel from "./Carousel";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../Config/config";
 
 const SeasonPopular = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const SeasonPopular = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:9292/api/anime/current-season"
+          `${API_URL}/api/anime/current-season`
         );
         setData(response.data);
         // console.log(response.data);

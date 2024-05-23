@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API_URL from "../Config/config";
 
 const RegisterForm = ({ onClose, onRegisterSuccess }) => {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ const RegisterForm = ({ onClose, onRegisterSuccess }) => {
       return;
     }
     try {
-      const response = await axios.post("http://localhost:9292/register", {
+      const response = await axios.post(`${API_URL}/register`, {
         email,
         password,
         role: "USER",

@@ -6,6 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import AnimeCard from "../components/AnimeCard";
 import Spinner from "../components/Spinner";
 import noResults from "../components/assets/no-results.png";
+import API_URL from "../Config/config";
 
 const SearchResult = () => {
   const [data, setData] = useState({ pagination: {}, data: [] });
@@ -18,7 +19,7 @@ const SearchResult = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://localhost:9292/api/anime/search?q=${query}&page=${pageNum}`
+          `${API_URL}/api/anime/search?q=${query}&page=${pageNum}`
         );
         const data = response.data;
         const newData = response.data;
@@ -43,7 +44,7 @@ const SearchResult = () => {
     try {
       const response = await axios
         .get(
-          `http://localhost:9292/api/anime/search?q=${query}&page=${pageNum}`
+          `${API_URL}/api/anime/search?q=${query}&page=${pageNum}`
         )
         .then((res) => {
           if (data?.data) {

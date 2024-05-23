@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API_URL from "../Config/config";
 
 const ChangePassword = ({ onClose }) => {
   const [oldPassword, setOldPassword] = useState("");
@@ -23,7 +24,7 @@ const ChangePassword = ({ onClose }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:9292/changePassword",
+        `${API_URL}/changePassword`,
         {
           oldPassword,
           newPassword,

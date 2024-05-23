@@ -7,6 +7,7 @@ import ContentWrapper from "../components/ContentWrapper";
 import AnimeCard from "../components/AnimeCard";
 import Spinner from "../components/Spinner";
 import noResults from "../components/assets/no-results.png";
+import API_URL from "../Config/config";
 
 let filters = {};
 
@@ -63,7 +64,7 @@ const Explore = () => {
       }
 
       const response = await axios.get(
-        `http://localhost:9292/api/anime/explore?${params}`
+        `${API_URL}/api/anime/explore?${params}`
       );
       const newData = response.data;
       setData((prevData) => ({
@@ -98,7 +99,7 @@ const Explore = () => {
 
     try {
       const response = await axios
-        .get(`http://localhost:9292/api/anime/explore?${params}`)
+        .get(`${API_URL}/api/anime/explore?${params}`)
         .then((response) => {
           if (data?.data) {
             setData({

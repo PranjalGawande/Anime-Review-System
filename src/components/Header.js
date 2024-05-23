@@ -9,6 +9,7 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import { Dropdown } from "react-bootstrap";
 import ChangePassword from "./ChangePassword";
+import API_URL from "../Config/config";
 
 const Header = () => {
   const [show, setShow] = useState("top");
@@ -135,7 +136,7 @@ const Header = () => {
   const getRandomAnime = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:9292/api/anime/random-anime"
+        `${API_URL}/api/anime/random-anime`
       );
       const animeId = response.data.data.mal_id;
       navigate(`/anime/${animeId}`, { state: { data: response.data.data } });

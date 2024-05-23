@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ContentWrapper from "./ContentWrapper";
 import Carousel from "./Carousel";
 import axios from "axios";
+import API_URL from "../Config/config";
 
 const UpcomingNextSeason = () => {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ const UpcomingNextSeason = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:9292/api/anime/upcoming-anime"
+          `${API_URL}/api/anime/upcoming-anime`
         );
         setData(response.data);
         // console.log(response.data);

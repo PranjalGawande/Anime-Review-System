@@ -7,6 +7,7 @@ import LazyloadImg from "./LazyloadImg";
 import CircleRating from "./CircleRating";
 import VideoPopup from "./VideoPopup";
 import toast from "react-hot-toast";
+import API_URL from "../Config/config";
 
 const AnimeDetailsBanner = ({ data, stats, loading }) => {
   const { id } = useParams();

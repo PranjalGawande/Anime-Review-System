@@ -5,6 +5,7 @@ import LazyloadImg from "./LazyloadImg";
 import CircleRating from "./CircleRating";
 import NoImagePlaceholder from "./assets/No-Image-Placeholder.png";
 import toast from "react-hot-toast";
+import API_URL from "../Config/config";
 
 const AnimeCard = ({ data, type, fetchWatchlistData }) => {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ const AnimeCard = ({ data, type, fetchWatchlistData }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:9292/deleteWatchList",
+        `${API_URL}/deleteWatchList`,
         {
           animeId: data.animeId,
         },

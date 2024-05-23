@@ -4,6 +4,7 @@ import ContentWrapper from "../components/ContentWrapper";
 import AnimeCard from "../components/AnimeCard";
 import Spinner from "../components/Spinner";
 import noResults from "../components/assets/no-results.png";
+import API_URL from "../Config/config";
 
 const WatchList = () => {
   const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ const WatchList = () => {
         Authorization: `Bearer ${token}`,
       };
 
-      const response = await axios.get(`http://localhost:9292/getWatchList`, {
+      const response = await axios.get(`${API_URL}/getWatchList`, {
         headers: header,
       });
       setData(response.data.data);
