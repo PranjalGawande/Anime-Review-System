@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: 192.168.58.2
+    - host: anime-review-system.com
       http:
         paths:
           - path: /
