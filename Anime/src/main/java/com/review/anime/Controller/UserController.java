@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:9292")
+@CrossOrigin("*")
 @RequestMapping("/")
 public class UserController {
 
