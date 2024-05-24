@@ -17,10 +17,7 @@ public class AnimeApplication {
 
 	private static final Logger logger = LogManager.getLogger(AnimeApplication.class);
 
-	public static void main(String[] args) {
-		logger.info("Application Starting.");
-		SpringApplication.run(AnimeApplication.class, args);
-	}
+	public static void main(String[] args) { SpringApplication.run(AnimeApplication.class, args);}
 
 	@Component
 	class AdminIntiailizer implements CommandLineRunner {

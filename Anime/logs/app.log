@@ -1,0 +1,200 @@
+2024-05-24 15:54:51 INFO  AnimeApplication:21 - Application Starting.
+2024-05-24 15:54:51 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 17.0.10 with PID 103550 (/home/hari/Desktop/SPE/Anime/target/classes started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 15:54:51 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 15:54:51 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 15:54:51 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 15:54:51 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 20 ms. Found 3 JPA repository interfaces.
+2024-05-24 15:54:51 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-24 15:54:51 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-24 15:54:51 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-24 15:54:51 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-24 15:54:51 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-24 15:54:51 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 503 ms
+2024-05-24 15:54:51 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 15:54:51 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 15:54:52 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 15:54:52 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 15:54:52 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 15:54:52 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@23c05889
+2024-05-24 15:54:52 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 15:54:52 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 15:54:52 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 15:54:52 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 15:54:52 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 15:54:52 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 15:54:52 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 15:54:53 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 15:54:53 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@679f3e12, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b285847, org.springframework.security.web.context.SecurityContextHolderFilter@cc41d2d, org.springframework.security.web.header.HeaderWriterFilter@49825659, org.springframework.web.filter.CorsFilter@57af157c, org.springframework.security.web.authentication.logout.LogoutFilter@24a5ddd7, com.review.anime.security.JwtAuthFilter@293dd4b3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@504ccf42, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42130a5c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@765ccc7a, org.springframework.security.web.session.SessionManagementFilter@689504b1, org.springframework.security.web.access.ExceptionTranslationFilter@d3e9629, org.springframework.security.web.access.intercept.AuthorizationFilter@16c559c7]
+2024-05-24 15:54:53 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-24 15:54:53 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-24 15:54:53 INFO  AnimeApplication:56 - Started AnimeApplication in 1.954 seconds (process running for 2.348)
+2024-05-24 15:55:10 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-24 15:55:10 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-05-24 15:55:10 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-05-24 15:55:10 INFO  UserController:49 - Attempted Login with Email Id: admin@gmail.com
+2024-05-24 15:56:48 INFO  UserController:69 - New user account is successfully created with Email Id: siva@gmail.com
+2024-05-24 15:58:15 INFO  AnnotationConfigContextLoaderUtils:83 - Could not detect default configuration classes for test class [com.review.anime.Controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 15:58:15 INFO  SpringBootTestContextBootstrapper:234 - Found @SpringBootConfiguration com.review.anime.AnimeApplication for test class com.review.anime.Controller.UserControllerTest
+2024-05-24 15:58:15 WARN  DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer:78 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/hari/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/hari/.m2/repository/org/json/json/20211205/json-20211205.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-05-24 15:58:15 INFO  UserControllerTest:50 - Starting UserControllerTest using Java 17.0.10 with PID 104768 (started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 15:58:15 DEBUG UserControllerTest:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 15:58:15 INFO  UserControllerTest:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 15:58:16 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4aab7195, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6210666c, org.springframework.security.web.context.SecurityContextHolderFilter@143413cd, org.springframework.security.web.header.HeaderWriterFilter@2b5f8e61, org.springframework.web.filter.CorsFilter@1dca62c2, org.springframework.security.web.authentication.logout.LogoutFilter@6a1d1467, com.review.anime.security.JwtAuthFilter@72224107, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@146f3d22, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66b6873f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52657d5f, org.springframework.security.web.session.SessionManagementFilter@a03529c, org.springframework.security.web.access.ExceptionTranslationFilter@56f9de3b, org.springframework.security.web.access.intercept.AuthorizationFilter@5cbe95b1]
+2024-05-24 15:58:16 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 15:58:16 INFO  SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2024-05-24 15:58:16 INFO  TestDispatcherServlet:532 - Initializing Servlet ''
+2024-05-24 15:58:16 INFO  TestDispatcherServlet:554 - Completed initialization in 0 ms
+2024-05-24 15:58:16 INFO  UserControllerTest:56 - Started UserControllerTest in 1.205 seconds (process running for 1.817)
+2024-05-24 15:58:16 INFO  AnimeApplication:43 - Initializing default Admin account with Email ID: admin@gmail.com.
+2024-05-24 15:58:16 INFO  AnnotationConfigContextLoaderUtils:83 - Could not detect default configuration classes for test class [com.review.anime.AnimeApplicationTests]: AnimeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 15:58:16 INFO  SpringBootTestContextBootstrapper:234 - Found @SpringBootConfiguration com.review.anime.AnimeApplication for test class com.review.anime.AnimeApplicationTests
+2024-05-24 15:58:16 WARN  DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer:78 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/hari/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/hari/.m2/repository/org/json/json/20211205/json-20211205.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-05-24 15:58:16 INFO  AnimeApplicationTests:50 - Starting AnimeApplicationTests using Java 17.0.10 with PID 104768 (started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 15:58:16 DEBUG AnimeApplicationTests:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 15:58:16 INFO  AnimeApplicationTests:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 15:58:16 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 15:58:16 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 18 ms. Found 3 JPA repository interfaces.
+2024-05-24 15:58:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 15:58:17 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 15:58:17 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 15:58:17 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 15:58:17 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 15:58:17 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c120b00
+2024-05-24 15:58:17 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 15:58:17 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 15:58:17 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 15:58:17 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 15:58:17 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 15:58:17 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 15:58:18 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 15:58:18 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@eba003e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@659b0c20, org.springframework.security.web.context.SecurityContextHolderFilter@2f75c413, org.springframework.security.web.header.HeaderWriterFilter@11f633f, org.springframework.web.filter.CorsFilter@1c696163, org.springframework.security.web.authentication.logout.LogoutFilter@5af6378e, com.review.anime.security.JwtAuthFilter@3c5077f6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61f990b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c63146c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@247e1f35, org.springframework.security.web.session.SessionManagementFilter@3662309d, org.springframework.security.web.access.ExceptionTranslationFilter@6e58f36d, org.springframework.security.web.access.intercept.AuthorizationFilter@447f9a09]
+2024-05-24 15:58:18 INFO  AnimeApplicationTests:56 - Started AnimeApplicationTests in 1.438 seconds (process running for 3.456)
+2024-05-24 15:58:18 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 15:58:18 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 15:58:18 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 16:02:22 INFO  AnnotationConfigContextLoaderUtils:83 - Could not detect default configuration classes for test class [com.review.anime.Controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 16:02:22 INFO  SpringBootTestContextBootstrapper:234 - Found @SpringBootConfiguration com.review.anime.AnimeApplication for test class com.review.anime.Controller.UserControllerTest
+2024-05-24 16:02:22 WARN  DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer:78 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/hari/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/hari/.m2/repository/org/json/json/20211205/json-20211205.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-05-24 16:02:22 INFO  UserControllerTest:50 - Starting UserControllerTest using Java 17.0.10 with PID 106301 (started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 16:02:22 DEBUG UserControllerTest:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 16:02:22 INFO  UserControllerTest:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 16:02:24 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@57b1ec84, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3c27f72, org.springframework.security.web.context.SecurityContextHolderFilter@3f3c5ecd, org.springframework.security.web.header.HeaderWriterFilter@6abb7b7d, org.springframework.web.filter.CorsFilter@5cbe95b1, org.springframework.security.web.authentication.logout.LogoutFilter@3c6bd624, com.review.anime.security.JwtAuthFilter@4e3283f6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a03529c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1760e594, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28fa541, org.springframework.security.web.session.SessionManagementFilter@6e981e78, org.springframework.security.web.access.ExceptionTranslationFilter@621dc63d, org.springframework.security.web.access.intercept.AuthorizationFilter@46524ebe]
+2024-05-24 16:02:24 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 16:02:24 INFO  SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2024-05-24 16:02:24 INFO  TestDispatcherServlet:532 - Initializing Servlet ''
+2024-05-24 16:02:24 INFO  TestDispatcherServlet:554 - Completed initialization in 0 ms
+2024-05-24 16:02:24 INFO  UserControllerTest:56 - Started UserControllerTest in 1.345 seconds (process running for 2.008)
+2024-05-24 16:02:24 INFO  AnimeApplication:43 - Initializing default Admin account with Email ID: admin@gmail.com.
+2024-05-24 16:02:24 INFO  AnnotationConfigContextLoaderUtils:83 - Could not detect default configuration classes for test class [com.review.anime.AnimeApplicationTests]: AnimeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 16:02:24 INFO  SpringBootTestContextBootstrapper:234 - Found @SpringBootConfiguration com.review.anime.AnimeApplication for test class com.review.anime.AnimeApplicationTests
+2024-05-24 16:02:24 WARN  DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer:78 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/hari/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/hari/.m2/repository/org/json/json/20211205/json-20211205.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-05-24 16:02:24 INFO  AnimeApplicationTests:50 - Starting AnimeApplicationTests using Java 17.0.10 with PID 106301 (started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 16:02:24 DEBUG AnimeApplicationTests:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 16:02:24 INFO  AnimeApplicationTests:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 16:02:24 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 16:02:24 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+2024-05-24 16:02:24 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 16:02:24 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 16:02:24 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 16:02:24 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 16:02:24 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 16:02:25 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6939f18a
+2024-05-24 16:02:25 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 16:02:25 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 16:02:25 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 16:02:25 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 16:02:25 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 16:02:25 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 16:02:25 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 16:02:25 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5b2235a5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5af6378e, org.springframework.security.web.context.SecurityContextHolderFilter@616f1c2e, org.springframework.security.web.header.HeaderWriterFilter@450555ac, org.springframework.web.filter.CorsFilter@205b3a1a, org.springframework.security.web.authentication.logout.LogoutFilter@2f75c413, com.review.anime.security.JwtAuthFilter@7b828793, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e58f36d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11f633f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@447f9a09, org.springframework.security.web.session.SessionManagementFilter@5064988, org.springframework.security.web.access.ExceptionTranslationFilter@4a16325, org.springframework.security.web.access.intercept.AuthorizationFilter@7c63146c]
+2024-05-24 16:02:25 INFO  AnimeApplicationTests:56 - Started AnimeApplicationTests in 1.533 seconds (process running for 3.769)
+2024-05-24 16:02:26 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 16:02:26 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 16:02:26 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 16:02:33 INFO  AnnotationConfigContextLoaderUtils:83 - Could not detect default configuration classes for test class [com.review.anime.Controller.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 16:02:33 INFO  SpringBootTestContextBootstrapper:234 - Found @SpringBootConfiguration com.review.anime.AnimeApplication for test class com.review.anime.Controller.UserControllerTest
+2024-05-24 16:02:33 WARN  DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer:78 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/hari/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/hari/.m2/repository/org/json/json/20211205/json-20211205.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-05-24 16:02:33 INFO  UserControllerTest:50 - Starting UserControllerTest using Java 17.0.10 with PID 106494 (started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 16:02:33 DEBUG UserControllerTest:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 16:02:33 INFO  UserControllerTest:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 16:02:34 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c27f72, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cbe95b1, org.springframework.security.web.context.SecurityContextHolderFilter@1179fc8c, org.springframework.security.web.header.HeaderWriterFilter@34cf0e80, org.springframework.web.filter.CorsFilter@28fa541, org.springframework.security.web.authentication.logout.LogoutFilter@3d8d52be, com.review.anime.security.JwtAuthFilter@539316bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1760e594, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4af70b83, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a82bc58, org.springframework.security.web.session.SessionManagementFilter@498a4d62, org.springframework.security.web.access.ExceptionTranslationFilter@4ae49387, org.springframework.security.web.access.intercept.AuthorizationFilter@1de85972]
+2024-05-24 16:02:34 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 16:02:34 INFO  SpringBootMockServletContext:435 - Initializing Spring TestDispatcherServlet ''
+2024-05-24 16:02:34 INFO  TestDispatcherServlet:532 - Initializing Servlet ''
+2024-05-24 16:02:34 INFO  TestDispatcherServlet:554 - Completed initialization in 0 ms
+2024-05-24 16:02:34 INFO  UserControllerTest:56 - Started UserControllerTest in 1.319 seconds (process running for 1.882)
+2024-05-24 16:02:34 INFO  AnimeApplication:43 - Initializing default Admin account with Email ID: admin@gmail.com.
+2024-05-24 16:02:35 INFO  AnnotationConfigContextLoaderUtils:83 - Could not detect default configuration classes for test class [com.review.anime.AnimeApplicationTests]: AnimeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 16:02:35 INFO  SpringBootTestContextBootstrapper:234 - Found @SpringBootConfiguration com.review.anime.AnimeApplication for test class com.review.anime.AnimeApplicationTests
+2024-05-24 16:02:35 WARN  DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer:78 - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/hari/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/home/hari/.m2/repository/org/json/json/20211205/json-20211205.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-05-24 16:02:35 INFO  AnimeApplicationTests:50 - Starting AnimeApplicationTests using Java 17.0.10 with PID 106494 (started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-24 16:02:35 DEBUG AnimeApplicationTests:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 16:02:35 INFO  AnimeApplicationTests:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 16:02:35 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 16:02:35 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 19 ms. Found 3 JPA repository interfaces.
+2024-05-24 16:02:35 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 16:02:35 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 16:02:35 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 16:02:35 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 16:02:35 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 16:02:35 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8bd9d08
+2024-05-24 16:02:35 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 16:02:35 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 16:02:35 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 16:02:36 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 16:02:36 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 16:02:36 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 16:02:36 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 16:02:36 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5af6378e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@205b3a1a, org.springframework.security.web.context.SecurityContextHolderFilter@6e58f36d, org.springframework.security.web.header.HeaderWriterFilter@5064988, org.springframework.web.filter.CorsFilter@447f9a09, org.springframework.security.web.authentication.logout.LogoutFilter@61f990b, com.review.anime.security.JwtAuthFilter@30cd72a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11f633f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3662309d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@eba003e, org.springframework.security.web.session.SessionManagementFilter@616f1c2e, org.springframework.security.web.access.ExceptionTranslationFilter@450555ac, org.springframework.security.web.access.intercept.AuthorizationFilter@5b2235a5]
+2024-05-24 16:02:36 INFO  AnimeApplicationTests:56 - Started AnimeApplicationTests in 1.534 seconds (process running for 3.647)
+2024-05-24 16:02:36 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 16:02:36 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 16:02:36 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
