@@ -1,18 +1,11 @@
 package com.review.anime.Controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.review.anime.service.AnimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -101,16 +94,6 @@ public class AnimeController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving anime genres: " + e.getMessage());
         }
     }
-
-//    @GetMapping("get-anime-list")
-//    public ResponseEntity<String> getAnimeList() {
-//        try {
-//            String animeDetails = animeService.getAnimeList();
-//            return ResponseEntity.ok(animeDetails);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving anime details: " + e.getMessage());
-//        }
-//    }
 
     @GetMapping("explore")
     public ResponseEntity<String> exploreAnimeList(
@@ -212,47 +195,6 @@ public class AnimeController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving recommended anime: " + e.getMessage());
         }
     }
-
-//    @GetMapping("/all-details/{id}")
-//    public ResponseEntity<String> getAllAnimeDetails(@PathVariable("id") String id) {
-//        try {
-//            String animeDetails = animeService.getAnimeDetailsById(id);
-//            String charactersList = animeService.getAnimeCharactersList(id);
-//            String staffList = animeService.getAnimeStaffList(id);
-//            String animeStatistics = animeService.getAnimeStatistics(id);
-//            String recommendedAnime = animeService.getRecommendedAnime(id);
-//
-//            // Combine all the responses into a single JSON object
-//            String jsonResponse = "{"
-//                    + "\"animeDetails\": " + animeDetails + ","
-//                    + "\"charactersList\": " + charactersList + ","
-//                    + "\"staffList\": " + staffList + ","
-//                    + "\"animeStatistics\": " + animeStatistics + ","
-//                    + "\"recommendedAnime\": " + recommendedAnime
-//                    + "}";
-//
-//            return ResponseEntity.ok(jsonResponse);
-//        } catch (Exception e) {
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .body("Error retrieving anime details: " + e.getMessage());
-//        }
-//    }
-
-//    @GetMapping("/all-details/{id}")
-//    public ResponseEntity<String> getAllAnimeDetails(@PathVariable("id") String id) {
-//        try {
-//            String allAnimeDetails = animeService.getAllAnimeDetails(id);
-//            return ResponseEntity.ok(allAnimeDetails);
-//        } catch (RuntimeException e) {
-//            if (e.getCause() instanceof HttpClientErrorException) {
-//                HttpClientErrorException httpClientErrorException = (HttpClientErrorException) e.getCause();
-//                return ResponseEntity.status(httpClientErrorException.getStatusCode())
-//                        .body("Error retrieving anime details: " + httpClientErrorException.getStatusText());
-//            }
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .body("Error retrieving anime details: " + e.getMessage());
-//        }
-//    }
 
     @GetMapping("/relations/{id}")
     public ResponseEntity<String> getAnimeRelations(@PathVariable("id") String id) {

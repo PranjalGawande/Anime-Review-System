@@ -2,6 +2,7 @@ package com.review.anime.Controller;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.review.anime.AnimeApplication;
 import com.review.anime.dto.ExtraDTO;
 import com.review.anime.dto.ReviewDTO;
 import com.review.anime.dto.Token;
@@ -11,6 +12,8 @@ import com.review.anime.entites.User;
 import com.review.anime.entites.WatchList;
 import com.review.anime.service.ReviewService;
 import com.review.anime.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +33,8 @@ import java.util.List;
 @RequestMapping("/")
 public class UserController {
 
+    private static final Logger logger = LogManager.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
@@ -41,6 +46,8 @@ public class UserController {
 
     @PostMapping("/login")
     private ResponseEntity<Token> userLogin(@RequestBody User user) {
+        logger.info("Attempted Login with Email Id: {}", user.getEmail());
+
         Token token = new Token(userService.authenticate(user));
         return ResponseEntity.ok().body(token);
     }
@@ -49,14 +56,18 @@ public class UserController {
     private ResponseEntity<String> userRegister(@RequestBody User user) {
         User exisitingUser = userService.findUserByEmail(user.getEmail());
         if(exisitingUser != null ) {
+            logger.info("Attempted to Create an account with existing Email Id: {}", user.getEmail());
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Username/Email is already taken.");
         }
 
         if (user.getRole() == Role.ADMIN) {
+            logger.info("Attempted to Create an Admin account with Email Id : {}", user.getEmail());
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Cannot register as Admin.");
         }
 
         userService.addUser(user);
+        logger.info("New user account is successfully created with Email Id: {}", user.getEmail());
+
         return ResponseEntity.ok().body("Registered Successfully.");
     }
 
