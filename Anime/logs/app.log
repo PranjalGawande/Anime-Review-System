@@ -198,3 +198,629 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 2024-05-24 16:02:36 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-05-24 16:02:36 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
 2024-05-24 16:02:36 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 16:35:13 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 21.0.1 with PID 39930 (/home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime/target/classes started by pranjal-gawande in /home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime)
+2024-05-24 16:35:13 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 16:35:13 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 16:35:13 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 16:35:13 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 35 ms. Found 3 JPA repository interfaces.
+2024-05-24 16:35:14 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-24 16:35:14 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-24 16:35:14 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-24 16:35:14 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-24 16:35:14 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-24 16:35:14 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 755 ms
+2024-05-24 16:35:14 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 16:35:14 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 16:35:14 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 16:35:14 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 16:35:14 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 16:35:14 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48d5ca17
+2024-05-24 16:35:14 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 16:35:14 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 16:35:14 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 16:35:15 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 16:35:15 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 16:35:15 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 16:35:15 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 16:35:15 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 16:35:16 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ed7fb78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@393b99d, org.springframework.security.web.context.SecurityContextHolderFilter@53b5356, org.springframework.security.web.header.HeaderWriterFilter@10522dfd, org.springframework.web.filter.CorsFilter@182ce25e, org.springframework.security.web.authentication.logout.LogoutFilter@497f8a4b, com.review.anime.security.JwtAuthFilter@189f2184, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16c559c7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32a7c583, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32d11a5c, org.springframework.security.web.session.SessionManagementFilter@6c152246, org.springframework.security.web.access.ExceptionTranslationFilter@72e5f018, org.springframework.security.web.access.intercept.AuthorizationFilter@1cda3a6d]
+2024-05-24 16:35:16 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-24 16:35:16 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-24 16:35:16 INFO  AnimeApplication:56 - Started AnimeApplication in 3.012 seconds (process running for 4.306)
+2024-05-24 17:17:26 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 17:17:26 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 17:17:26 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 17:17:30 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 21.0.1 with PID 56055 (/home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime/target/classes started by pranjal-gawande in /home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime)
+2024-05-24 17:17:30 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 17:17:30 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 17:17:31 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 17:17:31 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 30 ms. Found 3 JPA repository interfaces.
+2024-05-24 17:17:31 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-24 17:17:31 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-24 17:17:31 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-24 17:17:31 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-24 17:17:31 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-24 17:17:31 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 758 ms
+2024-05-24 17:17:31 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 17:17:31 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 17:17:31 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 17:17:31 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 17:17:31 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 17:17:32 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@226e07e7
+2024-05-24 17:17:32 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 17:17:32 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 17:17:32 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 17:17:32 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 17:17:32 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 17:17:32 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 17:17:33 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 17:17:33 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 17:17:33 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ed7fb78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@393b99d, org.springframework.security.web.context.SecurityContextHolderFilter@53b5356, org.springframework.security.web.header.HeaderWriterFilter@10522dfd, org.springframework.web.filter.CorsFilter@182ce25e, org.springframework.security.web.authentication.logout.LogoutFilter@497f8a4b, com.review.anime.security.JwtAuthFilter@189f2184, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16c559c7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32a7c583, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32d11a5c, org.springframework.security.web.session.SessionManagementFilter@6c152246, org.springframework.security.web.access.ExceptionTranslationFilter@72e5f018, org.springframework.security.web.access.intercept.AuthorizationFilter@1cda3a6d]
+2024-05-24 17:17:33 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-24 17:17:33 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-24 17:17:33 INFO  AnimeApplication:56 - Started AnimeApplication in 2.937 seconds (process running for 3.582)
+2024-05-24 17:18:35 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-24 17:18:35 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-05-24 17:18:35 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-05-24 17:18:35 INFO  AnimeService:28 - Fetching background images
+2024-05-24 17:18:37 INFO  AnimeController:26 - Successfully fetched background images
+2024-05-24 17:24:48 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 17:24:48 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 17:24:48 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 17:24:51 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 21.0.1 with PID 58737 (/home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime/target/classes started by pranjal-gawande in /home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime)
+2024-05-24 17:24:51 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 17:24:51 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 17:24:52 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 17:24:52 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2024-05-24 17:24:52 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-24 17:24:52 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-24 17:24:52 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-24 17:24:52 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-24 17:24:52 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-24 17:24:52 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 741 ms
+2024-05-24 17:24:52 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 17:24:52 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 17:24:52 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 17:24:52 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 17:24:52 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 17:24:52 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3fd5d679
+2024-05-24 17:24:52 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 17:24:53 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 17:24:53 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 17:24:53 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 17:24:53 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 17:24:53 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 17:24:54 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 17:24:54 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 17:24:54 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1d3f5482, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@67e255cf, org.springframework.security.web.context.SecurityContextHolderFilter@68330024, org.springframework.security.web.header.HeaderWriterFilter@33ea437a, org.springframework.web.filter.CorsFilter@1bb90d4d, org.springframework.security.web.authentication.logout.LogoutFilter@ebcf6c0, com.review.anime.security.JwtAuthFilter@68d1f4e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c5eb88c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@fc9313d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e1f88b6, org.springframework.security.web.session.SessionManagementFilter@19266ca3, org.springframework.security.web.access.ExceptionTranslationFilter@cc81cb3, org.springframework.security.web.access.intercept.AuthorizationFilter@3449cddf]
+2024-05-24 17:24:54 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-24 17:24:54 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-24 17:24:54 INFO  AnimeApplication:56 - Started AnimeApplication in 3.06 seconds (process running for 3.688)
+2024-05-24 17:25:06 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-24 17:25:06 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-05-24 17:25:06 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
+2024-05-24 17:25:06 INFO  AnimeService:28 - Fetching background images
+2024-05-24 17:25:08 INFO  AnimeService:47 - Successfully fetched background images
+2024-05-24 17:25:08 INFO  AnimeController:26 - Successfully fetched background images
+2024-05-24 18:08:57 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 18:08:57 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 18:08:57 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 18:09:01 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 21.0.1 with PID 73199 (/home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime/target/classes started by pranjal-gawande in /home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime)
+2024-05-24 18:09:01 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 18:09:01 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 18:09:02 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 18:09:02 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 39 ms. Found 3 JPA repository interfaces.
+2024-05-24 18:09:02 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-24 18:09:02 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-24 18:09:02 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-24 18:09:02 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-24 18:09:02 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-24 18:09:02 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 924 ms
+2024-05-24 18:09:02 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 18:09:02 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 18:09:02 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 18:09:03 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 18:09:03 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 18:09:03 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c0013b8
+2024-05-24 18:09:03 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 18:09:03 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 18:09:03 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 18:09:03 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 18:09:03 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 18:09:04 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 18:09:04 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 18:09:04 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 18:09:04 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a4181ba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e77c9c3, org.springframework.security.web.context.SecurityContextHolderFilter@765ccc7a, org.springframework.security.web.header.HeaderWriterFilter@24a5ddd7, org.springframework.web.filter.CorsFilter@4cc9d672, org.springframework.security.web.authentication.logout.LogoutFilter@46da7d39, com.review.anime.security.JwtAuthFilter@5f0c45ae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71de943f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5e756b8d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7bd4f212, org.springframework.security.web.session.SessionManagementFilter@679f3e12, org.springframework.security.web.access.ExceptionTranslationFilter@42e20500, org.springframework.security.web.access.intercept.AuthorizationFilter@5ded2dfc]
+2024-05-24 18:09:04 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-24 18:09:04 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-24 18:09:04 INFO  AnimeApplication:56 - Started AnimeApplication in 3.282 seconds (process running for 3.864)
+2024-05-24 18:26:14 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 18:26:14 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-24 18:26:14 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
+2024-05-24 18:26:18 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 21.0.1 with PID 78744 (/home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime/target/classes started by pranjal-gawande in /home/pranjal-gawande/SPE/working_SPE/Anime-Review-System/Anime)
+2024-05-24 18:26:18 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-24 18:26:18 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 18:26:19 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 18:26:19 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 34 ms. Found 3 JPA repository interfaces.
+2024-05-24 18:26:19 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-24 18:26:19 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-24 18:26:19 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-24 18:26:19 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-24 18:26:19 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-24 18:26:19 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 833 ms
+2024-05-24 18:26:19 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 18:26:19 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 18:26:19 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-24 18:26:19 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 18:26:20 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-24 18:26:20 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@9880a15
+2024-05-24 18:26:20 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-24 18:26:20 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-24 18:26:20 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-24 18:26:20 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 18:26:21 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 18:26:22 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 18:26:22 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-24 18:26:22 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 18:26:22 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@393b99d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@182ce25e, org.springframework.security.web.context.SecurityContextHolderFilter@407956a5, org.springframework.security.web.header.HeaderWriterFilter@17d6b6e, org.springframework.web.filter.CorsFilter@32d11a5c, org.springframework.security.web.authentication.logout.LogoutFilter@6d952747, com.review.anime.security.JwtAuthFilter@c53c04e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32a7c583, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d598162, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43ac3b45, org.springframework.security.web.session.SessionManagementFilter@65067d90, org.springframework.security.web.access.ExceptionTranslationFilter@74ee8f57, org.springframework.security.web.access.intercept.AuthorizationFilter@4fda9fde]
+2024-05-24 18:26:22 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-24 18:26:22 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-24 18:26:22 INFO  AnimeApplication:56 - Started AnimeApplication in 4.274 seconds (process running for 4.98)
+2024-05-24 18:26:22 INFO  UserService:59 - Fetching list of admin users
+2024-05-24 18:26:22 INFO  UserService:62 - Successfully fetched 1 admin users
+2024-05-24 18:35:49 INFO  Http11Processor:175 - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x060xd20x010x000x060xce0x030x030xaboT0xa6;0x190x1e0x99{0x0edKe0x040xdc@0xd10x19j0x140x0f0xd50xc80xb3oo0xb3M0x8dg=A ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 18:35:49 INFO  Http11Processor:175 - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x060xd20x010x000x060xce0x030x03pnF0xed0xc00xdaw0x9610x150xb10xeb0x120xc3L0x880x960xdc0xab0xc5.+0xf9y0xd70xf40xbcP0xd10x06{0xff ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 18:35:58 INFO  Http11Processor:175 - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x060xd20x010x000x060xce0x030x030xab0xc90xcd>0xbbNmP0x120x8e0xfcc0xb2@40x7f0xc60x0c0x0e:(0xb060x07eg0x9a0x03H}0x900xe0 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 18:36:47 INFO  Http11Processor:175 - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [0x160x030x010x070x120x010x000x070x0e0x030x030xfb0x1c[0xc00x8f60x9cap+h0x84T0xa60x0aX0xa2$0xa60xe3#0xcc0x860xc10xa70xab0x8c_0xfbx0x8b9 ]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:407) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:264) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 18:40:31 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-24 18:40:31 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
+2024-05-24 18:40:31 INFO  DispatcherServlet:554 - Completed initialization in 9 ms
+2024-05-24 18:40:32 INFO  UserController:49 - Attempted Login with Email Id: hari@gmail.com
+2024-05-24 18:40:32 INFO  UserService:40 - Authenticating user with email: hari@gmail.com
+2024-05-24 18:40:33 ERROR UserService:53 - Authentication failed for user with email: hari@gmail.com
+org.springframework.security.authentication.InternalAuthenticationServiceException: UserDetailsService returned null, which is an interface contract violation
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:105) ~[spring-security-core-6.2.3.jar:6.2.3]
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:133) ~[spring-security-core-6.2.3.jar:6.2.3]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182) ~[spring-security-core-6.2.3.jar:6.2.3]
+	at com.review.anime.service.UserService.authenticate(UserService.java:42) ~[classes/:?]
+	at com.review.anime.Controller.UserController.userLogin(UserController.java:51) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at com.review.anime.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:35) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 19:02:29 INFO  UserController:49 - Attempted Login with Email Id: hari@gmail.com
+2024-05-24 19:02:29 INFO  UserService:40 - Authenticating user with email: hari@gmail.com
+2024-05-24 19:02:30 ERROR UserService:53 - Authentication failed for user with email: hari@gmail.com
+org.springframework.security.authentication.InternalAuthenticationServiceException: UserDetailsService returned null, which is an interface contract violation
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:105) ~[spring-security-core-6.2.3.jar:6.2.3]
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:133) ~[spring-security-core-6.2.3.jar:6.2.3]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182) ~[spring-security-core-6.2.3.jar:6.2.3]
+	at com.review.anime.service.UserService.authenticate(UserService.java:42) ~[classes/:?]
+	at com.review.anime.Controller.UserController.userLogin(UserController.java:51) ~[classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:925) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at com.review.anime.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:35) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 19:02:47 INFO  UserController:49 - Attempted Login with Email Id: admin@gmail.com
+2024-05-24 19:02:47 INFO  UserService:40 - Authenticating user with email: admin@gmail.com
+2024-05-24 19:02:49 INFO  UserService:50 - Authentication successful for user with email: admin@gmail.com
+2024-05-24 19:02:57 INFO  AnimeController:69 - Fetching top anime for page: null
+2024-05-24 19:02:57 INFO  AnimeService:110 - Fetching top anime for page: null
+2024-05-24 19:02:59 INFO  AnimeService:120 - Successfully fetched top anime
+2024-05-24 19:02:59 INFO  AnimeController:72 - Successfully fetched top anime
+2024-05-24 19:03:59 INFO  AnimeService:58 - Fetching current season anime with filter: null, limit: null, page: null
+2024-05-24 19:03:59 INFO  AnimeService:74 - Successfully fetched current season anime
+2024-05-24 19:04:01 INFO  AnimeController:41 - Successfully fetched current season anime
+2024-05-24 19:04:23 INFO  AnimeController:126 - Fetching explore anime list with parameters: page=null, genres=46
+2024-05-24 19:04:23 INFO  AnimeService:183 - Exploring anime list with parameters: page=null, genres=46
+2024-05-24 19:04:24 INFO  AnimeService:198 - Successfully explored anime list
+2024-05-24 19:04:24 INFO  AnimeController:131 - Successfully fetched explore anime list
+2024-05-24 19:28:05 INFO  UserController:49 - Attempted Login with Email Id: admin@gmail.com
+2024-05-24 19:28:05 INFO  UserService:40 - Authenticating user with email: admin@gmail.com
+2024-05-24 19:28:05 INFO  UserService:50 - Authentication successful for user with email: admin@gmail.com
+2024-05-24 19:29:09 INFO  UserController:78 - Adding comment for user: admin@gmail.com
+2024-05-24 19:29:11 INFO  UserService:83 - Finding user by email: admin@gmail.com
+2024-05-24 19:29:11 INFO  UserService:87 - User found with email: admin@gmail.com
+2024-05-24 19:29:11 INFO  ReviewService:20 - Saving review for anime ID: 21
+2024-05-24 19:29:24 INFO  ReviewService:23 - Review saved successfully for anime ID: 21
+2024-05-24 19:29:24 INFO  UserController:94 - Comment added successfully for user: admin@gmail.com
+2024-05-24 19:30:20 INFO  UserController:100 - Fetching comments for animeId: 21
+2024-05-24 19:30:20 INFO  ReviewService:31 - Fetching reviews for anime ID: 21
+2024-05-24 19:30:20 INFO  ReviewService:34 - Successfully fetched 1 reviews for anime ID: 21
+2024-05-24 19:30:20 INFO  UserController:114 - Fetched 1 comments for animeId: 21
+2024-05-24 19:30:51 ERROR [dispatcherServlet]:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+io.jsonwebtoken.ExpiredJwtException: JWT expired 606937180 milliseconds ago at 2024-05-17T13:25:14.000Z. Current time: 2024-05-24T14:00:51.180Z. Allowed clock skew: 0 milliseconds.
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:682) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:362) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parse(DefaultJwtParser.java:94) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:36) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.io.AbstractParser.parse(AbstractParser.java:29) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at io.jsonwebtoken.impl.DefaultJwtParser.parseSignedClaims(DefaultJwtParser.java:821) ~[jjwt-impl-0.12.5.jar:0.12.5]
+	at com.review.anime.security.JwtService.extractAllClaims(JwtService.java:44) ~[classes/:?]
+	at com.review.anime.security.JwtService.extractClaims(JwtService.java:35) ~[classes/:?]
+	at com.review.anime.security.JwtService.extractEmail(JwtService.java:18) ~[classes/:?]
+	at com.review.anime.security.JwtAuthFilter.doFilterInternal(JwtAuthFilter.java:40) ~[classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195) ~[spring-webmvc-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230) ~[spring-security-config-6.2.3.jar:6.2.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.5.jar:6.1.5]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-05-24 19:31:24 INFO  UserController:217 - Attempting to delete comment with id: 3 by user: admin@gmail.com
+2024-05-24 19:31:24 INFO  UserService:83 - Finding user by email: admin@gmail.com
+2024-05-24 19:31:24 INFO  UserService:87 - User found with email: admin@gmail.com
+2024-05-24 19:31:24 INFO  ReviewService:43 - Deleting comment with ID: 3
+2024-05-24 19:31:31 INFO  ReviewService:46 - Successfully deleted comment with ID: 3
+2024-05-24 19:31:31 INFO  UserController:227 - Comment with id: 3 deleted successfully by user: admin@gmail.com
+2024-05-24 19:32:14 INFO  UserController:162 - Adding to watchlist for user: admin@gmail.com
+2024-05-24 19:32:14 INFO  UserService:99 - Adding watched anime ID: 23 for user with email: admin@gmail.com
+2024-05-24 19:32:14 INFO  UserService:83 - Finding user by email: admin@gmail.com
+2024-05-24 19:32:14 INFO  UserService:87 - User found with email: admin@gmail.com
+2024-05-24 19:32:16 INFO  UserService:127 - Anime ID: 23 added to watch list for user with email: admin@gmail.com
+2024-05-24 19:32:16 INFO  UserController:170 - Added to watchlist for user: admin@gmail.com
+2024-05-24 19:32:47 INFO  UserController:122 - Fetching watchlist for user: admin@gmail.com
+2024-05-24 19:32:47 INFO  UserService:83 - Finding user by email: admin@gmail.com
+2024-05-24 19:32:47 INFO  UserService:87 - User found with email: admin@gmail.com
+2024-05-24 19:32:47 INFO  UserController:154 - Fetched watchlist for user: admin@gmail.com
+2024-05-24 19:33:55 INFO  UserController:178 - Deleting from watchlist for user: admin@gmail.com
+2024-05-24 19:33:55 INFO  UserService:83 - Finding user by email: admin@gmail.com
+2024-05-24 19:33:55 INFO  UserService:87 - User found with email: admin@gmail.com
+2024-05-24 19:33:55 INFO  UserService:140 - Deleting watched anime ID: 23 for user with email: admin@gmail.com
+2024-05-24 19:33:59 INFO  UserService:147 - Successfully removed anime ID: 23 from watch list for user with email: admin@gmail.com
+2024-05-24 19:33:59 INFO  UserController:187 - Deleted from watchlist for user: admin@gmail.com
+2024-05-24 19:34:57 INFO  UserService:83 - Finding user by email: pranjal@gmail.com
+2024-05-24 19:34:57 INFO  UserService:87 - User found with email: pranjal@gmail.com
+2024-05-24 19:34:57 INFO  UserController:59 - Attempted to Create an account with existing Email Id: pranjal@gmail.com
+2024-05-24 19:35:41 INFO  UserService:83 - Finding user by email: pranjalgawande@gmail.com
+2024-05-24 19:35:41 WARN  UserService:89 - User not found with email: pranjalgawande@gmail.com
+2024-05-24 19:35:41 INFO  UserService:71 - Adding new user with email: pranjalgawande@gmail.com
+2024-05-24 19:35:46 INFO  UserService:75 - Successfully added user with email: pranjalgawande@gmail.com
+2024-05-24 19:35:46 INFO  UserController:69 - New user account is successfully created with Email Id: pranjalgawande@gmail.com
+2024-05-24 19:35:55 INFO  AnimeService:28 - Fetching background images
+2024-05-24 19:35:56 INFO  AnimeService:47 - Successfully fetched background images
+2024-05-24 19:35:56 INFO  AnimeController:26 - Successfully fetched background images
+2024-05-24 19:36:15 INFO  AnimeService:58 - Fetching current season anime with filter: null, limit: null, page: null
+2024-05-24 19:36:15 INFO  AnimeService:74 - Successfully fetched current season anime
+2024-05-24 19:36:16 INFO  AnimeController:41 - Successfully fetched current season anime
+2024-05-24 19:36:46 INFO  AnimeController:53 - Fetching upcoming anime for page: null
+2024-05-24 19:36:48 INFO  AnimeService:97 - Successfully fetched upcoming anime
+2024-05-24 19:36:48 INFO  AnimeController:56 - Successfully fetched upcoming anime
+2024-05-24 19:37:27 INFO  AnimeController:69 - Fetching top anime for page: null
+2024-05-24 19:37:27 INFO  AnimeService:110 - Fetching top anime for page: null
+2024-05-24 19:37:28 INFO  AnimeService:120 - Successfully fetched top anime
+2024-05-24 19:37:28 INFO  AnimeController:72 - Successfully fetched top anime
+2024-05-24 19:37:57 INFO  AnimeController:82 - Fetching top characters
+2024-05-24 19:37:57 INFO  AnimeService:133 - Fetching top characters
+2024-05-24 19:37:58 INFO  AnimeService:137 - Successfully fetched top characters
+2024-05-24 19:37:59 INFO  AnimeController:85 - Successfully fetched top characters
+2024-05-24 19:38:17 INFO  AnimeController:96 - Fetching random anime
+2024-05-24 19:38:17 INFO  AnimeService:150 - Fetching random anime
+2024-05-24 19:38:18 INFO  AnimeService:154 - Successfully fetched random anime
+2024-05-24 19:38:18 INFO  AnimeController:99 - Successfully fetched random anime
+2024-05-24 19:38:34 INFO  AnimeController:110 - Fetching anime genres
+2024-05-24 19:38:34 INFO  AnimeService:166 - Fetching anime genres
+2024-05-24 19:38:35 INFO  AnimeService:170 - Successfully fetched anime genres
+2024-05-24 19:38:35 INFO  AnimeController:113 - Successfully fetched anime genres
+2024-05-24 19:38:45 INFO  AnimeController:126 - Fetching explore anime list with parameters: page=null, genres=46
+2024-05-24 19:38:45 INFO  AnimeService:183 - Exploring anime list with parameters: page=null, genres=46
+2024-05-24 19:38:47 INFO  AnimeService:198 - Successfully explored anime list
+2024-05-24 19:38:47 INFO  AnimeController:131 - Successfully fetched explore anime list
+2024-05-24 19:39:02 INFO  AnimeController:158 - Fetching anime details for id: 1
+2024-05-24 19:39:02 INFO  AnimeService:233 - Fetching anime details for id: 1
+2024-05-24 19:39:03 INFO  AnimeService:237 - Successfully fetched anime details for id: 1
+2024-05-24 19:39:03 INFO  AnimeController:161 - Successfully fetched anime details for id: 1
+2024-05-24 19:39:34 INFO  AnimeController:172 - Fetching anime characters list for id: 20
+2024-05-24 19:39:34 INFO  AnimeService:249 - Fetching anime characters for id: 20
+2024-05-24 19:39:36 INFO  AnimeService:253 - Successfully fetched anime characters for id: 20
+2024-05-24 19:39:36 INFO  AnimeController:175 - Successfully fetched anime characters list for id: 20
+2024-05-24 19:40:52 INFO  AnimeController:186 - Fetching anime staff list for id: 20
+2024-05-24 19:40:52 INFO  AnimeService:265 - Fetching anime staff for id: 20
+2024-05-24 19:40:54 INFO  AnimeService:269 - Successfully fetched anime staff for id: 20
+2024-05-24 19:40:54 INFO  AnimeController:189 - Successfully fetched anime staff list for id: 20
+2024-05-24 19:41:16 INFO  AnimeController:200 - Fetching anime statistics for id: 20
+2024-05-24 19:41:16 INFO  AnimeService:282 - Fetching anime statistics for id: 20
+2024-05-24 19:41:17 INFO  AnimeService:286 - Successfully fetched anime statistics for id: 20
+2024-05-24 19:41:17 INFO  AnimeController:203 - Successfully fetched anime statistics for id: 20
+2024-05-24 19:41:57 INFO  AnimeController:214 - Fetching recommended anime for id: 20
+2024-05-24 19:41:57 INFO  AnimeService:298 - Fetching recommended anime for id: 20
+2024-05-24 19:41:59 INFO  AnimeService:302 - Successfully fetched recommended anime for id: 20
+2024-05-24 19:42:40 INFO  AnimeController:144 - Searching anime with query: fate, page: 3
+2024-05-24 19:42:40 INFO  AnimeService:210 - Searching anime with query: fate, page: 3
+2024-05-24 19:42:41 INFO  AnimeService:215 - Successfully searched anime
+2024-05-24 19:42:41 INFO  AnimeController:147 - Successfully searched anime
