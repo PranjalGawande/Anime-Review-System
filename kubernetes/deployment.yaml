@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: anime-frontend-container
-          image: pranjalgawande/spe_frontend
+          image: hariprasad0023/spe_frontend
           ports:
             - containerPort: 3000
