@@ -59,6 +59,11 @@ To successfully run and deploy this project, you will need the following DevOps 
   ```sh
   minikube dashboard
 
+
 ## Contributors
-- Hari Prasad - @HariPrasad0023
-- Pranjal Gawande - @PranjalGawande
+
+- **Hari Prasad** - [@HariPrasad0023](https://github.com/HariPrasad0023)
+- **Pranjal Gawande** - [@PranjalGawande](https://github.com/PranjalGawande)
+
+
+
