@@ -827,3 +827,37 @@ io.jsonwebtoken.ExpiredJwtException: JWT expired 606937180 milliseconds ago at 2
 2024-05-24 19:42:40 INFO  AnimeService:210 - Searching anime with query: fate, page: 3
 2024-05-24 19:42:41 INFO  AnimeService:215 - Successfully searched anime
 2024-05-24 19:42:41 INFO  AnimeController:147 - Successfully searched anime
+2024-05-26 00:35:19 INFO  AnimeApplication:50 - Starting AnimeApplication using Java 17.0.10 with PID 310568 (/home/hari/Desktop/SPE/Anime/target/classes started by hari in /home/hari/Desktop/SPE/Anime)
+2024-05-26 00:35:19 DEBUG AnimeApplication:51 - Running with Spring Boot v3.2.4, Spring v6.1.5
+2024-05-26 00:35:19 INFO  AnimeApplication:654 - No active profile set, falling back to 1 default profile: "default"
+2024-05-26 00:35:19 INFO  RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-26 00:35:19 INFO  RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 22 ms. Found 3 JPA repository interfaces.
+2024-05-26 00:35:19 INFO  TomcatWebServer:109 - Tomcat initialized with port 9292 (http)
+2024-05-26 00:35:19 INFO  Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-9292"]
+2024-05-26 00:35:19 INFO  StandardService:173 - Starting service [Tomcat]
+2024-05-26 00:35:19 INFO  StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-05-26 00:35:19 INFO  [/]:173 - Initializing Spring embedded WebApplicationContext
+2024-05-26 00:35:19 INFO  ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 555 ms
+2024-05-26 00:35:20 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-26 00:35:20 INFO  Version:44 - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-26 00:35:20 INFO  RegionFactoryInitiator:50 - HHH000026: Second-level cache disabled
+2024-05-26 00:35:20 INFO  SpringPersistenceUnitInfo:87 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-26 00:35:20 INFO  HikariDataSource:110 - HikariPool-1 - Starting...
+2024-05-26 00:35:20 INFO  HikariPool:565 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1da5c19d
+2024-05-26 00:35:20 INFO  HikariDataSource:123 - HikariPool-1 - Start completed.
+2024-05-26 00:35:20 WARN  deprecation:153 - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-05-26 00:35:20 WARN  deprecation:101 - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2024-05-26 00:35:20 INFO  JtaPlatformInitiator:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-26 00:35:20 INFO  LocalContainerEntityManagerFactoryBean:437 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-26 00:35:20 INFO  QueryEnhancerFactory:49 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-26 00:35:21 DEBUG JwtAuthFilter:240 - Filter 'jwtAuthFilter' configured for use
+2024-05-26 00:35:21 WARN  JpaBaseConfiguration$JpaWebConfiguration:232 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-26 00:35:21 INFO  DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6cbbfe03, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78b20c7f, org.springframework.security.web.context.SecurityContextHolderFilter@1a034bbc, org.springframework.security.web.header.HeaderWriterFilter@71662b15, org.springframework.web.filter.CorsFilter@128579a6, org.springframework.security.web.authentication.logout.LogoutFilter@ba77dc6, com.review.anime.security.JwtAuthFilter@2be9add0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a6dd88e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c3c05ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14d5b2ac, org.springframework.security.web.session.SessionManagementFilter@4c2057c6, org.springframework.security.web.access.ExceptionTranslationFilter@432fca40, org.springframework.security.web.access.intercept.AuthorizationFilter@794daa09]
+2024-05-26 00:35:21 INFO  Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-9292"]
+2024-05-26 00:35:21 INFO  TomcatWebServer:241 - Tomcat started on port 9292 (http) with context path ''
+2024-05-26 00:35:21 INFO  AnimeApplication:56 - Started AnimeApplication in 2.185 seconds (process running for 2.606)
+2024-05-26 00:35:21 INFO  UserService:59 - Fetching list of admin users
+2024-05-26 00:35:21 INFO  UserService:62 - Successfully fetched 1 admin users
+2024-05-26 00:35:24 INFO  LocalContainerEntityManagerFactoryBean:650 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-26 00:35:24 INFO  HikariDataSource:350 - HikariPool-1 - Shutdown initiated...
+2024-05-26 00:35:24 INFO  HikariDataSource:352 - HikariPool-1 - Shutdown completed.
