@@ -1,3 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: anime-service
+spec:
+  selector:
+    app: anime
+  ports:
+    - protocol: TCP
+      port: 9292
+      targetPort: 9292
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,22 +36,3 @@ spec:
               value: "mysql-service"
             - name: DB_PORT
               value: "3307"
-#          volumeMounts:
-#            - name: log-volume
-#              mountPath: /app/logs
-#        - name: filebeat
-#          image: docker.elastic.co/beats/filebeat:8.0.0
-#          command: ["sh", "-c", "chmod 600 /etc/filebeat/filebeat.yml && filebeat -e -c /etc/filebeat/filebeat.yml"]
-#          volumeMounts:
-#            - name: log-volume
-#              mountPath: /app/logs
-#              readOnly: true
-#            - name: filebeat-config
-#              mountPath: /etc/filebeat/filebeat.yml
-#              subPath: filebeat.yml
-#      volumes:
-#        - name: log-volume
-#          emptyDir: {}
-#        - name: filebeat-config
-#          configMap:
-#            name: filebeat-config
