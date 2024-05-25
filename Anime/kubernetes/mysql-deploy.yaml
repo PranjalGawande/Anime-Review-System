@@ -58,6 +58,9 @@ spec:
   resources:
     requests:
       storage: 1Gi
+    selector:
+      matchLabels:
+        app: mysql
 
 ---
 apiVersion: v1
