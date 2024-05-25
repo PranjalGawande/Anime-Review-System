@@ -72,6 +72,11 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>org.appenders.log4j</groupId>
+			<artifactId>log4j2-elasticsearch-hc</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-log4j2</artifactId>
 		</dependency>
