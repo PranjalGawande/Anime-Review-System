@@ -12,25 +12,15 @@
                 <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n</pattern>
             </PatternLayout>
         </File>
-
-        <!-- Elasticsearch Appender -->
-        <Elasticsearch name="Elasticsearch" serverUris="https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443"
-                       indexName="index" typeName="_doc">
-            <JacksonJsonLayout complete="true" compact="true" eventEol="true"/>
-            <Property name="auth.basic.user" value="elastic"/>
-            <Property name="auth.basic.password" value="sRlHJmrEOwXse5zexTPKA8yu"/>
-        </Elasticsearch>
     </Appenders>
 
     <Loggers>
         <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
-            <AppenderRef ref="Elasticsearch"/>
         </Root>
         <Logger name="com.review.anime" level="debug" additivity="false">
             <AppenderRef ref="File"/>
-            <AppenderRef ref="Elasticsearch"/>
         </Logger>
     </Loggers>
 </Configuration>

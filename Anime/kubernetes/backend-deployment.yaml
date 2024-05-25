@@ -1,4 +1,3 @@
----
 apiVersion: v1
 kind: Service
 metadata:
@@ -36,3 +35,22 @@ spec:
               value: "mysql-service"
             - name: DB_PORT
               value: "3307"
+        - name: filebeat
+          image: docker.elastic.co/beats/filebeat:8.0.0
+          args: [
+            "-e",
+            "-E", "filebeat.config.modules.enabled=false",
+            "-E", "output.elasticsearch.hosts=[\"https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443\"]",
+            "-E", "output.elasticsearch.username=elastic",
+            "-E", "output.elasticsearch.password=sRlHJmrEOwXse5zexTPKA8yu",
+            "-E", "output.elasticsearch.ssl.enabled=true",
+            "-E", "output.elasticsearch.ssl.verification_mode=none",
+            "-E", "filebeat.inputs=[{ type: 'log', paths: ['/app/logs/app.log'], processors: [{ script: { source: 'event.Put(\"index\", \"index\")' } }, { script: { source: 'event.Put(\"message\", event.Get(\"message\"))' } }] }]"
+          ]
+          volumeMounts:
+            - name: log-volume
+              mountPath: /app/logs/app.log
+              readOnly: true
+      volumes:
+        - name: log-volume
+          emptyDir: {}
