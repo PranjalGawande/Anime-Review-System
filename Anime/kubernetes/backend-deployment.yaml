@@ -39,18 +39,19 @@ spec:
           image: docker.elastic.co/beats/filebeat:8.0.0
           args: [
             "-e",
-            "-E", "filebeat.config.modules.enabled=false",
-            "-E", "output.elasticsearch.hosts=[\"https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443\"]",
-            "-E", "output.elasticsearch.username=elastic",
-            "-E", "output.elasticsearch.password=sRlHJmrEOwXse5zexTPKA8yu",
-            "-E", "output.elasticsearch.ssl.enabled=true",
-            "-E", "output.elasticsearch.ssl.verification_mode=none",
-            "-E", "filebeat.inputs=[{ type: 'log', paths: ['/app/logs/app.log'] }]"
+            "-c", "/etc/filebeat/filebeat.yml"
           ]
           volumeMounts:
             - name: log-volume
               mountPath: /app/logs/app.log
               readOnly: true
+            - name: filebeat-config
+              mountPath: /etc/filebeat/filebeat.yml
+              readOnly: true
       volumes:
         - name: log-volume
           emptyDir: {}
+        - name: filebeat-config
+          configMap:
+            name: filebeat-config
+
