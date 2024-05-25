@@ -1,10 +1,10 @@
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: filebeat-config
-#  namespace: default
-#data:
-#  filebeat.yml: |
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat-config
+  namespace: default
+data:
+  filebeat.yml: |
 #    filebeat.inputs:
 #      - type: log
 #        paths:
