@@ -1,20 +1,20 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: filebeat-config
-  namespace: default
-data:
-  filebeat.yml: |
-    filebeat.inputs:
-      - type: log
-        paths:
-          - /app/logs/app.log
-        fields:
-          log_type: application
-
-    output.elasticsearch:
-      hosts: ["https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443"]
-      username: elastic
-      password: sRlHJmrEOwXse5zexTPKA8yu
-      ssl.enabled: true
-      ssl.verification_mode: none
+#apiVersion: v1
+#kind: ConfigMap
+#metadata:
+#  name: filebeat-config
+#  namespace: default
+#data:
+#  filebeat.yml: |
+#    filebeat.inputs:
+#      - type: log
+#        paths:
+#          - /app/logs/app.log
+#        fields:
+#          log_type: application
+#
+#    output.elasticsearch:
+#      hosts: ["https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443"]
+#      username: elastic
+#      password: sRlHJmrEOwXse5zexTPKA8yu
+#      ssl.enabled: true
+#      ssl.verification_mode: none
