@@ -16,8 +16,8 @@ The Anime Review System is a web application that allows users to browse, review
 To successfully run and deploy this project, you will need the following DevOps tools:
 
 - **Jenkins**: For continuous integration and continuous delivery.
-- **Docker**: Containerization
-- **Kubernetes and Ansible**: Deployment
+- **Docker**: For Containerization
+- **Kubernetes and Ansible**: For Deployment
 - **Minikube**: For running Kubernetes locally.
 - **Kubectl**: For managing Kubernetes clusters.
 - **Elasticsearch**: For search and analytics.
