@@ -10,7 +10,6 @@ spec:
     - protocol: TCP
       port: 9292
       targetPort: 9292
-  type: LoadBalancer
 
 ---
 apiVersion: apps/v1
