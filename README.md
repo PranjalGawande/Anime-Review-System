@@ -46,7 +46,7 @@ To successfully run and deploy this project, you will need the following DevOps 
      minikube ip
 
 2. **Open in Browser:**
-   - Open your browser and go to http://<minikube-ip>:30023.
+   - Open your browser and go to http://[minikube-ip]:30023.
 
 ### Application Usage
 
