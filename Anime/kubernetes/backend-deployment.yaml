@@ -27,18 +27,14 @@ spec:
               mountPath: /app/logs
         - name: filebeat
           image: docker.elastic.co/beats/filebeat:8.0.0
-          args: [
-            "-e",
-            "-c", "/etc/filebeat/filebeat.yml"
-          ]
+          command: ["sh", "-c", "chmod 600 /etc/filebeat/filebeat.yml && filebeat -e -c /etc/filebeat/filebeat.yml"]
           volumeMounts:
             - name: log-volume
               mountPath: /app/logs
               readOnly: true
             - name: filebeat-config
               mountPath: /etc/filebeat/filebeat.yml
-              subPath: filebeat.yaml
-              readOnly: true
+              subPath: filebeat.yml
       volumes:
         - name: log-volume
           emptyDir: {}
