@@ -37,7 +37,7 @@ spec:
               readOnly: true
             - name: filebeat-config
               mountPath: /etc/filebeat/filebeat.yml
-              subPath: filebeat.yml
+              subPath: filebeat.yaml
               readOnly: true
       volumes:
         - name: log-volume
