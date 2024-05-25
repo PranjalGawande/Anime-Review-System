@@ -51,16 +51,15 @@ metadata:
   name: mysql-pv-claim
   labels:
     app: mysql
-    tier: database
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi
-    selector:
-      matchLabels:
-        app: mysql
+  selector:
+    matchLabels:
+      app: mysql
 
 ---
 apiVersion: v1
