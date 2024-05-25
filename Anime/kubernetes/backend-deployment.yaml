@@ -47,7 +47,7 @@ spec:
             "-E", "output.elasticsearch.ssl.verification_mode=none",
             "-E", "filebeat.inputs=type=log",
             "-E", "filebeat.paths=/app/logs/app.log",
-            "-E", "filebeat.processors=[{ script: { source: 'event.Put(\"index\", \"index\")' } }]"
+            "-E", "filebeat.processors=[{ script: { source: 'event.Put(\"index\", \"index\")' } }]",
           ]
           volumeMounts:
             - name: log-volume
