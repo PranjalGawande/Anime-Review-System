@@ -44,7 +44,8 @@ spec:
             "-E", "output.elasticsearch.username=elastic",
             "-E", "output.elasticsearch.password=sRlHJmrEOwXse5zexTPKA8yu",
             "-E", "output.elasticsearch.ssl.enabled=true",
-            "-E", "output.elasticsearch.ssl.verification_mode=none"
+            "-E", "output.elasticsearch.ssl.verification_mode=none",
+            "-E", "filebeat.inputs=[{ type: 'log', paths: ['/app/logs/app.log'] }]"
           ]
           volumeMounts:
             - name: log-volume
