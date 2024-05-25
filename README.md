@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Anime Review System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+The Anime Review System is a web application that allows users to browse, review, and score various anime series. Utilizing advanced algorithms and modern DevOps practices, this application ensures a seamless and efficient user experience.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About](#about)
+- [DevOps Tools Required](#devops-tools-required)
+- [Execution](#execution)
+- [Contributors](#contributors)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## DevOps Tools Required
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To successfully run and deploy this project, you will need the following DevOps tools:
 
-### `npm test`
+- **Jenkins**: For continuous integration and continuous delivery.
+- **Docker**: Containerization
+- **Kubernetes and Ansible**: Deployment
+- **Minikube**: For running Kubernetes locally.
+- **Kubectl**: For managing Kubernetes clusters.
+- **Elasticsearch**: For search and analytics.
+- **Kibana**: For data visualization.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Execution
 
-### `npm run build`
+### Jenkins Pipeline
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Start Jenkins Pipeline:**
+   - Clone the GitHub repository URL of this project into your Jenkins pipeline configuration.
+   - The Jenkins pipeline will build and deploy the frontend and backend applications.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Build and Deploy:**
+   - Use Maven to build the backend and Npm to build the frontend.
+   - Dockerize the applications and push the Docker images to a container registry (e.g., Docker Hub).
+   - Ansible will deploy Kubernetes clusters and manage the deployment of Docker images to the clusters.
+   - Kubernetes will orchestrate the creation and deployment of all necessary resources.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Access the Application
 
-### `npm run eject`
+1. **Get Minikube ip:**
+   - Type the following command to get the Minikube IP and then access the application using the specified port, for example, 30023.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+     ```sh
+     minikube ip
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Open in Browser:**
+   - Open your browser and go to http://<minikube-ip>:30023.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Application Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Interact with the App:**
+    - Browse the available anime series, read reviews, and rate the series.
+    - Add anime series to your watchlist if logged in.
+ 
+### Minikube Dashboard
+- Check minikube dashboard for the status.
+  ```sh
+  minikube dashboard
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors
+- Hari Prasad - @HariPrasad0023
+- Pranjal Gawande - @PranjalGawande
