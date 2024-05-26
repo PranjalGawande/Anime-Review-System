@@ -43,7 +43,7 @@ spec:
           args: [
             "-e",
             "-E", "filebeat.config.modules.enabled=false",
-            "-E", "output.elasticsearch.hosts=[\"https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443/new_anime/_doc\"]",
+            "-E", "output.elasticsearch.hosts=[\"https://81d9dc1bd63d45f497a94a307677e119.us-central1.gcp.cloud.es.io:443\"]",
             "-E", "output.elasticsearch.username=elastic",
             "-E", "output.elasticsearch.password=sRlHJmrEOwXse5zexTPKA8yu",
             "-E", "output.elasticsearch.ssl.enabled=true",
