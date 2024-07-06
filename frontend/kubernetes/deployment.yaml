@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anime-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: animefrontend
+  template:
+    metadata:
+      labels:
+        app: animefrontend
+    spec:
+      containers:
+        - name: anime-frontend-container
+          image: hariprasad0023/spe_frontend
+          ports:
+            - containerPort: 3000
